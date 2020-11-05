@@ -2,6 +2,7 @@
 *:before,
 *:after {
   -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
   box-sizing: inherit;
 }
 
@@ -19,13 +20,17 @@
 
 html {
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 body {
   font-family: "Lato", sans-serif;
   margin: 0;
-  background: url("https://firebasestorage.googleapis.com/v0/b/portfolio-231ae.appspot.com/o/images%2FNearFairmontHotelInverted.jpg?alt=media&token=e0b6bdb8-5d98-4787-8533-cde85f097846") no-repeat center center fixed;
+  background: url("https://firebasestorage.googleapis.com/v0/b/portfolio-231ae.appspot.com/o/images%2FNearFairmontHotelInverted.jpg?alt=media&token=e0b6bdb8-5d98-4787-8533-cde85f097846")
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
   background-size: cover;
   color: #0a0a0b;
   overflow: hidden;
@@ -67,7 +72,6 @@ h2 {
   text-shadow: 2px 2px #333;
   padding: 0.5rem;
 }
-
 p {
   font-size: 1.2rem;
   font-weight: lighter;
@@ -78,34 +82,23 @@ p {
   padding: 0.5rem;
   max-width: 60%;
 }
-
 header {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 10;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   color: #fff;
   padding: 10px 100px 0;
 }
-
 header h2 {
   cursor: pointer;
   background-color: transparent;
 }
-
 header nav ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -128,6 +121,7 @@ a.btn {
   padding: 10px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
   transition: all 0.2s;
 }
 
@@ -140,22 +134,33 @@ a.btn:hover {
 .cover {
   height: 100vh;
   width: 100%;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0)));
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 0, 0, 0.05)),
+    to(rgba(0, 0, 0, 0))
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
   padding: 20px 50px;
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-      flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-      justify-content: center;
+  justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-      align-items: center;
+  align-items: center;
 }
 
 .flex-form input[type="submit"] {
@@ -165,6 +170,7 @@ a.btn:hover {
   padding: 0 30px;
   cursor: pointer;
   -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
   transition: all 0.2s;
 }
 
@@ -175,13 +181,11 @@ a.btn:hover {
 
 .flex-form {
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   z-index: 10;
   position: relative;
   width: 500px;
-  -webkit-box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
-          box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .flex-form > * {
@@ -196,8 +200,7 @@ a.btn:hover {
 }
 
 input[type="search"] {
-  -ms-flex-preferred-size: 500px;
-      flex-basis: 500px;
+  flex-basis: 500px;
 }
 
 #madeby {
@@ -212,35 +215,41 @@ input[type="search"] {
   body {
     font-size: 0.9rem;
   }
+
   .flex-form {
     width: 100%;
   }
+
   input[type="search"] {
-    -ms-flex-preferred-size: 100%;
-        flex-basis: 100%;
+    flex-basis: 100%;
   }
+
   .flex-form > * {
     font-size: 0.9rem;
   }
+
   header {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-        flex-direction: column;
+    flex-direction: column;
     padding: 10px !important;
   }
+
   header h2 {
     margin-bottom: 15px;
   }
+
   h1 {
     font-size: 2rem;
     font-weight: 700;
     color: #fff;
     margin: 0 0 1.5rem;
   }
+
   .cover {
     padding: 20px;
   }
+
   #madeby {
     padding: 30px 20px;
   }
@@ -250,21 +259,20 @@ input[type="search"] {
   header nav li {
     margin: 0 10px;
   }
+
   .flex-form {
     display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-        flex-direction: column;
+    flex-direction: column;
   }
+
   input[type="search"] {
-    -ms-flex-preferred-size: 0;
-        flex-basis: 0;
+    flex-basis: 0;
   }
+
   label {
     display: none;
   }
 }
-/*# sourceMappingURL=App.css.map */

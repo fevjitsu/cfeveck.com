@@ -1,0 +1,118 @@
+.root {
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+.warning {
+  border-color: red;
+  font-weight: lighter;
+}
+input {
+  padding: 1rem;
+  margin: 0.2rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+.contact__button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  margin: 0.2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+}
+.contact__button:hover {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  margin: 0.2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+.contact__button__close__container {
+  display: flex;
+  flex-direction: row;
+  justify-self: flex-end;
+}
+.contact__button__send {
+  background-color: transparent;
+  transition: background-color 500ms;
+}
+.contact__button__send:hover {
+  background-color: #ef3f5a;
+}
+.contact__button__reset {
+  background-color: #ef3f5a;
+  transition: background-color 500ms;
+}
+.contact__button__reset:hover {
+  background-color: #d73851;
+}
+.contact__button__close {
+  background-color: #ef3f5a;
+  transition: background-color 500ms;
+}
+.contact__button__close:hover {
+  background-color: #d73851;
+}
+
+@media only screen and (max-device-width: 600px) {
+  .root {
+    margin: 0.2rem;
+    padding: 0.2rem;
+  }
+  input {
+    padding: 0.5rem;
+    margin: 0.2rem;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  .contact__button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 0.2rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  .contact__button__close__container {
+    display: flex;
+    flex-direction: row;
+    justify-self: flex-end;
+  }
+  .contact__button__send {
+    background-color: aquamarine;
+    transition: background-color 500ms;
+  }
+  .contact__button__send:hover {
+    background-color: navy;
+  }
+  .contact__button__reset {
+    background-color: lightcoral;
+    transition: background-color 500ms;
+  }
+  .contact__button__reset:hover {
+    background-color: navy;
+  }
+  .contact__button__close {
+    background-color: lightcoral;
+    transition: background-color 500ms;
+  }
+  .contact__button__close:hover {
+    background-color: navy;
+  }
+}
