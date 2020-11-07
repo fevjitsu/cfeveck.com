@@ -192,8 +192,8 @@ export default function PageContent({ pageType }) {
         <div className="animate__animated animate__backInUp">
           <h1>Hi, I'm Chris a freelancing web developer.</h1>
           <h2>
-            Have a look through my web app{" "}
-            <strike>and share your thoughts</strike>.
+            Have a look through my web app.{" "}
+            {/* <strike>and share your thoughts</strike>. */}
           </h2>
         </div>
       </div>
