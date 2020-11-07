@@ -115,21 +115,16 @@ export default function PageContent({ pageType }) {
       <div className={styles.page__content__root}>
         <div className="animate__animated animate__fadeInDown">
           <h1>Let's connect.</h1>
-          <h2>I am always ready to meet amazing people.</h2>
+
           <div id="contact__layout">
             <div>
               <p>
-                Eiusmod nulla eu pariatur nisi duis est velit labore sunt
-                veniam. Est ullamco duis Lorem ad duis cillum aute fugiat Lorem.
-                Nisi cupidatat ex aliqua laborum. Eiusmod aute adipisicing
-                dolore eiusmod cillum amet eu qui.
+                I'm always ready to meet amazing people. Let's connect and build
+                something amazing!
               </p>
               <p>
-                Nulla est qui id consectetur id aute voluptate sunt ut fugiat
-                minim esse ut cillum. Fugiat tempor consectetur enim ullamco
-                veniam id excepteur ullamco labore velit dolor duis ex aute.
-                Elit eu quis amet ad ex irure dolore excepteur. Ex duis dolor
-                pariatur cillum ut eiusmod nisi.
+                Je suis toujours prêt à rencontrer des gens formidables.
+                Connectons-nous et construisons quelque chose d'incroyable!
               </p>
             </div>
             <div>
@@ -149,20 +144,16 @@ export default function PageContent({ pageType }) {
               <div id="portfolio__layout">
                 <div>
                   <p>
-                    Irure ullamco aute aliquip id veniam sunt ipsum est nulla.
-                    Occaecat laboris est duis dolor. Ut mollit dolor dolor
-                    labore eiusmod Lorem incididunt ipsum consectetur enim
-                    officia non. Voluptate ullamco non nostrud et et nisi id.
-                    Sint sint fugiat mollit magna fugiat sit veniam exercitation
-                    eu ex amet esse. Quis ex sint magna tempor pariatur velit
-                    tempor commodo reprehenderit consectetur quis.
+                    As a web developer I create web apps and websites using well
+                    supported tools. I also host and provide search engine
+                    optimization for sites. Check out some of my projects.
                   </p>
                   <p>
-                    Aute velit labore aliqua ex ea do magna reprehenderit
-                    pariatur. Occaecat velit Lorem labore sit cupidatat sint do
-                    aute labore cupidatat excepteur elit non. Est deserunt
-                    nostrud excepteur deserunt eu dolor ex minim commodo irure
-                    duis ullamco.
+                    En tant que développeur Web, je crée des applications Web et
+                    des sites Web à l'aide d'outils bien pris en charge.
+                    J'héberge et assure également l'optimisation des moteurs de
+                    recherche de sites. Découvrez certains de mes projets
+                    répertoriés.
                   </p>
                 </div>
                 <div>
