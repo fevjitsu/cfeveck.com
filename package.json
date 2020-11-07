@@ -18,6 +18,7 @@
     "react-recaptcha": "^2.3.10",
     "react-redux": "^7.2.1",
     "react-scripts": "3.4.3",
+    "uid": "^2.0.0",
     "validator": "^13.1.17"
   },
   "scripts": {

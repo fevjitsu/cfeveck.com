@@ -2,16 +2,10 @@ import React from "react";
 import styles from "./List.module.css";
 import _ from "lodash";
 
-export default function List({
-  collection,
-  handleEditClick,
-  handleDeleteClick,
-  handleClick,
-  unordered,
-}) {
+export default function List({ collection, unordered }) {
   if (collection) {
     if (collection.length > 0) {
-      if (unordered == true) {
+      if (unordered === true) {
         return (
           <ul className={styles.ul__root}>
             {_.map(collection, (item, key) => {
@@ -23,36 +17,33 @@ export default function List({
                   className={styles.ul__li}
                 >
                   <div className={styles.ul__li__headers}>
-                    {handleClick ? (
+                    <div
+                      className={styles.ul__li__title}
+                      style={{ cursor: "pointer" }}
+                      onClick={item.handleClick}
+                    >
+                      {item.url ? (
+                        <a href={item.url}>{item.title}</a>
+                      ) : (
+                        item.title
+                      )}
+                    </div>
+
+                    {item.handleEditClick && (
                       <div
-                        className={styles.ul__li__title}
-                        style={{ cursor: "pointer" }}
-                        onClick={handleClick}
-                      >
-                        {item.title}
-                      </div>
-                    ) : (
-                      <div className={styles.ul__li__title}>{item.title}</div>
-                    )}
-                    {handleEditClick ? (
-                      <div
-                        onClick={handleEditClick}
+                        onClick={item.handleEditClick}
                         style={{ cursor: "pointer" }}
                       >
                         edit
                       </div>
-                    ) : (
-                      <div></div>
                     )}
-                    {handleDeleteClick ? (
+                    {item.handleDeleteClick && (
                       <div
-                        onClick={handleDeleteClick}
+                        onClick={item.handleDeleteClick}
                         style={{ cursor: "pointer" }}
                       >
                         del
                       </div>
-                    ) : (
-                      <div></div>
                     )}
                   </div>
 
@@ -76,36 +67,33 @@ export default function List({
                   className={styles.ol__li}
                 >
                   <div className={styles.ol__li__headers}>
-                    {handleClick ? (
+                    <div
+                      className={styles.ol__li__title}
+                      style={{ cursor: "pointer" }}
+                      onClick={item.handleClick}
+                    >
+                      {item.url ? (
+                        <a href={item.url}>{item.title}</a>
+                      ) : (
+                        item.title
+                      )}
+                    </div>
+
+                    {item.handleEditClick && (
                       <div
-                        className={styles.ol__li__title}
-                        style={{ cursor: "pointer" }}
-                        onClick={handleClick}
-                      >
-                        {item.title}
-                      </div>
-                    ) : (
-                      <div className={styles.ol__li__title}>{item.title}</div>
-                    )}
-                    {handleEditClick ? (
-                      <div
-                        onClick={handleEditClick}
+                        onClick={item.handleEditClick}
                         style={{ cursor: "pointer" }}
                       >
                         edit
                       </div>
-                    ) : (
-                      <div></div>
                     )}
-                    {handleDeleteClick ? (
+                    {item.handleDeleteClick && (
                       <div
-                        onClick={handleDeleteClick}
+                        onClick={item.handleDeleteClick}
                         style={{ cursor: "pointer" }}
                       >
                         del
                       </div>
-                    ) : (
-                      <div></div>
                     )}
                   </div>
 
@@ -119,14 +107,14 @@ export default function List({
         );
       }
     } else {
-      if (unordered == true) {
+      if (unordered === true) {
         return (
           <ul className={styles.ul__root}>
-            <li className={styles.ul__li} onClick={handleClick}>
+            <li className={styles.ul__li}>
               <div className={styles.ul__li__headers}>
                 <div className={styles.ul__li__title}>No results found</div>
-                <div onClick={handleEditClick}></div>
-                <div onClick={handleDeleteClick}></div>
+                <div></div>
+                <div></div>
               </div>
 
               <div className={styles.ul__li__paragraph}>
@@ -140,11 +128,9 @@ export default function List({
           <ol className={styles.ol__root}>
             <li className={styles.ol__li}>
               <div className={styles.ol__li__headers}>
-                <div className={styles.ol__li__title} onClick={handleClick}>
-                  No results found
-                </div>
-                <div onClick={handleEditClick}></div>
-                <div onClick={handleDeleteClick}></div>
+                <div className={styles.ol__li__title}>No results found</div>
+                <div></div>
+                <div></div>
               </div>
 
               <div className={styles.ol__li__paragraph}>

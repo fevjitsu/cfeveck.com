@@ -28,7 +28,8 @@ body {
   background: url("https://firebasestorage.googleapis.com/v0/b/portfolio-231ae.appspot.com/o/images%2FNearFairmontHotelInverted.jpg?alt=media&token=e0b6bdb8-5d98-4787-8533-cde85f097846") no-repeat center center fixed;
   background-size: cover;
   color: #0a0a0b;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 ul,
@@ -208,6 +209,65 @@ input[type="search"] {
   color: #fff;
 }
 
+.portfolio__lists__layout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#viewContainer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 80%;
+}
+
+#about__layout {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1.2fr 1.8fr;
+      grid-template-columns: 1.2fr 1.8fr;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+#about__lists__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#about__lists__container div {
+  margin: 0.5rem;
+  width: 100%;
+}
+
+#contact__layout {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+#portfolio__layout {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
 @media all and (max-width: 800px) {
   body {
     font-size: 0.9rem;
@@ -265,6 +325,65 @@ input[type="search"] {
   }
   label {
     display: none;
+  }
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 0.5rem;
+    opacity: 0.9;
+    text-shadow: 2px 2px #333;
+    padding: 0.2rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+    font-weight: lighter;
+    color: #fff;
+    margin: 0 0 0.5rem;
+    opacity: 0.9;
+    text-shadow: 2px 2px #333;
+    padding: 0.2rem;
+  }
+  #viewContainer {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    width: 100%;
+    max-height: 60vh;
+  }
+  #about__layout {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+  #about__lists__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #about__lists__container div {
+    margin: 0.1rem;
+    width: 100%;
+  }
+  #contact__layout {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  #portfolio__layout {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
   }
 }
 /*# sourceMappingURL=App.css.map */

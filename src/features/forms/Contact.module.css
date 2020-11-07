@@ -95,24 +95,24 @@ form {
     justify-self: flex-end;
   }
   .contact__button__send {
-    background-color: aquamarine;
+    background-color: transparent;
     transition: background-color 500ms;
   }
   .contact__button__send:hover {
-    background-color: navy;
+    background-color: #ef3f5a;
   }
   .contact__button__reset {
-    background-color: lightcoral;
+    background-color: #ef3f5a;
     transition: background-color 500ms;
   }
   .contact__button__reset:hover {
-    background-color: navy;
+    background-color: #d73851;
   }
   .contact__button__close {
-    background-color: lightcoral;
+    background-color: #ef3f5a;
     transition: background-color 500ms;
   }
   .contact__button__close:hover {
-    background-color: navy;
+    background-color: #d73851;
   }
 }

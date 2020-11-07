@@ -1,24 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import isEmail from "validator/lib/isEmail";
 import isMobilePhone from "validator/lib/isMobilePhone";
 import Recaptcha from "react-recaptcha";
-import {
-  hideContact,
-  setContactUserName,
-  setContactEmail,
-  setContactPhone,
-} from "./contactSlice";
+
 import styles from "./Contact.module.css";
+import database from "../../db/firebase";
 export default function Contact({ handleClose }) {
   const recaptchaKey = process.env.REACT_APP_RECAPTCHA;
-  let dispatch = useDispatch();
+
   let [message, setMessage] = useState("");
   let [name, setName] = useState("");
   let [email, setEmail] = useState("");
   let [phone, setPhone] = useState("");
   let [approved, setApproved] = useState(false);
-
+  let [messageSent, setMessageSent] = useState(false);
   const handleReset = () => {
     setEmail("");
     setPhone("");
@@ -27,13 +22,25 @@ export default function Contact({ handleClose }) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Hey, ${name} this submission is a prop.`);
-    dispatch(setContactEmail(email));
-    dispatch(setContactPhone(phone));
-    dispatch(setContactUserName(name));
-    dispatch(hideContact());
-  };
 
+    const messageCollection = database.ref(`portfolioApp/messages`);
+    messageCollection
+      .push({
+        name,
+        email,
+        phone,
+      })
+      .then(() => {
+        handleReset();
+        setMessageSent(true);
+      })
+      .catch((e) => {
+        console.log("failed", e);
+      });
+  };
+  useEffect(() => {
+    setMessageSent(false);
+  }, []);
   useEffect(() => {
     if (isEmail(email) && isMobilePhone(phone)) {
       setApproved(true);
@@ -152,6 +159,11 @@ export default function Contact({ handleClose }) {
           </form>
         </div>
       </div>
+      {messageSent && (
+        <div>
+          <h2>Your message was sent!</h2>
+        </div>
+      )}
     </div>
   );
 }
