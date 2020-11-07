@@ -37,7 +37,7 @@ export default function PageContent({ pageType }) {
                     {
                       title: "Bachelors of Science in Computing Science",
                       paragraph:
-                        "I obtained my BSc in Comp. Sci from The Kings' University in Edmonton, Alberta. I graduated on January, 2018.",
+                        "I obtained my BSc in Comp. Sci with a minor in Psychology from The Kings' University in Edmonton, Alberta. I graduated on January, 2018.",
                       // image: {
                       //   src:
                       //     "https://firebasestorage.googleapis.com/v0/b/portfolio-231ae.appspot.com/o/certificates%2FThe%20Modern%20JS%20bootcamp%20nov5%202020.jpg?alt=media&token=462beee5-d9fa-4e6c-94f1-c8ae4ef7a0ff",
@@ -59,6 +59,20 @@ export default function PageContent({ pageType }) {
                       },
                       url:
                         "https://firebasestorage.googleapis.com/v0/b/portfolio-231ae.appspot.com/o/certificates%2FThe%20Modern%20JS%20bootcamp%20nov5%202020.jpg?alt=media&token=462beee5-d9fa-4e6c-94f1-c8ae4ef7a0ff",
+
+                      handleClick: function () {},
+                    },
+                    {
+                      title: "Advanced Open Water Diver",
+                      paragraph:
+                        "Cert# 206711. I am looking to get more diving experience in Alberta in the up coming summer period. Always nice to see the world from different perspectives.",
+                      // image: {
+                      //   src:
+                      //     "https://firebasestorage.googleapis.com/v0/b/portfolio-231ae.appspot.com/o/certificates%2FThe%20Modern%20JS%20bootcamp%20nov5%202020.jpg?alt=media&token=462beee5-d9fa-4e6c-94f1-c8ae4ef7a0ff",
+                      //   alt: "The modern javascript bootcamp certificate",
+                      // },
+                      // url:
+                      //   "https://firebasestorage.googleapis.com/v0/b/portfolio-231ae.appspot.com/o/certificates%2FThe%20Modern%20JS%20bootcamp%20nov5%202020.jpg?alt=media&token=462beee5-d9fa-4e6c-94f1-c8ae4ef7a0ff",
 
                       handleClick: function () {},
                     },
