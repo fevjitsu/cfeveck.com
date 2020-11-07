@@ -219,7 +219,7 @@ input[type="search"] {
 
 #viewContainer {
   display: grid;
-  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
   justify-content: center;
   width: 80%;
 }
