@@ -67,7 +67,7 @@ export default function App() {
             >
               Portfolio
             </li>
-            <li
+            {/* <li
               onClick={() => {
                 setRegister(true);
                 setHome(false);
@@ -78,7 +78,7 @@ export default function App() {
               }}
             >
               <strike>Register/Log In</strike>
-            </li>
+            </li> */}
           </ul>
         </nav>
       </header>
