@@ -1,29 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import _ from "lodash";
 import styles from "./Search.module.css";
-
-import {
-  setSearchedItem,
-  setResults,
-  setSelected,
-  selectResults,
-  setCollection,
-} from "./searchSlice";
-import CollectionList from "../lists/CollectionList";
+import { setSearchedItem, setResults } from "./searchSlice";
 export default function Search({
   placeHolder = "Search",
   searchTitle = "",
   collection,
 }) {
-  let [showResults, setShowResults] = useState(false);
-  const results = useSelector(selectResults);
   let dispatch = useDispatch();
-  const getResults = (searchedTerm, collectionItems) => {
-    return _.filter(collectionItems, (item) => {
-      return item.name.toLowerCase().includes(searchedTerm.toLowerCase());
-    });
-  };
+
   let [searched, setSearched] = useState("");
   const handleChange = (e) => {
     setSearched(e.target.value.trim());
@@ -31,7 +17,9 @@ export default function Search({
       dispatch(setSearchedItem(searched));
       let results = getResults(searched, collection);
       if (results) {
-        dispatch(setResults(results));
+        if (results.length > 0) {
+          dispatch(setResults(results));
+        }
       }
     }
   };
@@ -42,49 +30,37 @@ export default function Search({
       dispatch(setSearchedItem(searched));
       let results = getResults(searched, collection);
       if (results) {
-        dispatch(setResults(results));
+        if (results.length > 0) {
+          dispatch(setResults(results));
+        }
       }
     }
   };
-
-  useEffect(() => {
-    if (results) {
-      setShowResults(true);
-    }
-    if (collection) {
-      if (collection.length > 0) {
-        dispatch(setCollection(collection));
-      }
-    }
-  }, [collection, results]);
+  const getResults = (searchedTerm, collectionItems) => {
+    return _.filter(collectionItems, (item) => {
+      return item.title.toLowerCase().includes(searchedTerm.toLowerCase());
+    });
+  };
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <button type="submit" className={styles.search__component__button}>
-            Search
-          </button>
-
-          <input
-            onChange={handleChange}
-            id={"search"}
-            name={"search"}
-            type={"search"}
-            placeholder={placeHolder}
-            className={styles.search__component__input}
-          />
-        </div>
+    <div className={styles.search__form__container}>
+      <form className={"flex-form"} onSubmit={handleSubmit}>
+        <label htmlFor="from">
+          <i className="ion-location"></i>
+        </label>
+        <input
+          onChange={handleChange}
+          id={"search"}
+          name={"search"}
+          type={"text"}
+          placeholder={placeHolder}
+          className={styles.search__component__input}
+        />
+        <input
+          type="submit"
+          className={styles.search__component__button}
+          placeholder={searchTitle}
+        />
       </form>
-      <div id={"search__component_results"}>
-        {showResults ? (
-          <CollectionList
-            collection={results}
-            handleClick={(e) => {
-              const id = e.target.id;
-            }}
-          />
-        ) : null}
-      </div>
     </div>
   );
 }

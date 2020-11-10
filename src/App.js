@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 import "normalize.css";
 import "./App.css";
-import List from "./features/lists/List";
-import Contact from "./features/forms/Contact";
-import { selectViewContact } from "./features/forms/contactSlice";
 import PageContent from "./features/displayContent/PageContent";
+
 export default function App() {
   let [home, setHome] = useState(true);
   let [about, setAbout] = useState(false);
@@ -82,15 +79,14 @@ export default function App() {
           </ul>
         </nav>
       </header>
-
       <div className="cover">
         <div id="viewContainer">
-          {home && <PageContent pageType={"home"} />}
-          {about && <PageContent pageType={"about"} />}
-          {contact && <PageContent pageType={"contact"} />}
-          {portfolio && <PageContent pageType={"portfolio"} />}
-          {login && <PageContent pageType={"login"} />}
-          {register && <PageContent pageType={"register"} />}
+          <div>{home && <PageContent pageType={"home"} />}</div>
+          <div>{about && <PageContent pageType={"about"} />}</div>
+          <div>{contact && <PageContent pageType={"contact"} />}</div>
+          <div>{portfolio && <PageContent pageType={"portfolio"} />}</div>
+          <div>{login && <PageContent pageType={"login"} />}</div>
+          <div>{register && <PageContent pageType={"register"} />}</div>
         </div>
         <div id="madeby">
           <span>

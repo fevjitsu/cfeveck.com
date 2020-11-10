@@ -28,7 +28,7 @@ body {
   background: url("https://firebasestorage.googleapis.com/v0/b/portfolio-231ae.appspot.com/o/images%2FNearFairmontHotelInverted.jpg?alt=media&token=e0b6bdb8-5d98-4787-8533-cde85f097846") no-repeat center center fixed;
   background-size: cover;
   color: #0a0a0b;
-  overflow-y: scroll;
+  overflow-y: hidden;
   overflow-x: hidden;
 }
 
@@ -159,6 +159,18 @@ a.btn:hover {
       align-items: center;
 }
 
+.cover #viewContainer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  width: 80%;
+}
+
+.cover #viewContainer > div {
+  max-height: 100%;
+}
+
 .flex-form input[type="submit"] {
   background: #ef3f5a;
   border: 1px solid #ef3f5a;
@@ -217,17 +229,7 @@ input[type="search"] {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-#viewContainer {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 80%;
+  width: 100%;
 }
 
 #about__layout {
@@ -307,8 +309,17 @@ input[type="search"] {
 }
 
 @media all and (max-width: 360px) {
+  body {
+    overflow-y: scroll;
+  }
+  header {
+    padding: 5px 100px 0;
+  }
   header nav li {
     margin: 0 10px;
+  }
+  .cover {
+    padding: 5px;
   }
   .flex-form {
     display: -webkit-box;
@@ -351,6 +362,9 @@ input[type="search"] {
         grid-template-columns: 1fr;
     width: 100%;
     max-height: 60vh;
+  }
+  #viewContainer > div {
+    max-height: 100%;
   }
   #about__layout {
     display: -ms-grid;

@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import _ from "lodash";
 import database from "../../db/firebase";
-
 export const searchSlice = createSlice({
   name: "search",
   initialState: {
@@ -43,7 +41,12 @@ export const setCollectionAsync = (target) => (dispatch) => {
     .ref(`${target}`)
     .once("value")
     .then((snapshot) => {
-      const db = snapshot.val();
+      const db = [];
+      // const db = snapshot.val();
+      snapshot.forEach(function (item) {
+        db.push({ id: item.key, ...item.val() });
+      });
+
       dispatch(setCollection(db));
     })
     .catch((e) => {

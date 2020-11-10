@@ -33,7 +33,7 @@ body {
   -moz-background-size: cover;
   background-size: cover;
   color: #0a0a0b;
-  overflow-y: scroll;
+  overflow-y: hidden;
   overflow-x: hidden;
 }
 
@@ -162,6 +162,15 @@ a.btn:hover {
   justify-content: center;
   -webkit-box-align: center;
   align-items: center;
+
+  #viewContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 80%;
+  }
+  #viewContainer > div {
+    max-height: 100%;
+  }
 }
 
 .flex-form input[type="submit"] {
@@ -215,14 +224,9 @@ input[type="search"] {
 .portfolio__lists__layout {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
-#viewContainer {
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-content: center;
-  width: 80%;
-}
 #about__layout {
   display: grid;
   grid-template-columns: 1.2fr 1.8fr;
@@ -289,10 +293,18 @@ input[type="search"] {
 }
 
 @media all and (max-width: 360px) {
+  body {
+    overflow-y: scroll;
+  }
+  header {
+    padding: 5px 100px 0;
+  }
   header nav li {
     margin: 0 10px;
   }
-
+  .cover {
+    padding: 5px;
+  }
   .flex-form {
     display: -webkit-box;
     display: flex;
@@ -327,11 +339,15 @@ input[type="search"] {
     text-shadow: 2px 2px #333;
     padding: 0.2rem;
   }
+
   #viewContainer {
     display: grid;
     grid-template-columns: 1fr;
     width: 100%;
     max-height: 60vh;
+  }
+  #viewContainer > div {
+    max-height: 100%;
   }
   #about__layout {
     display: grid;
