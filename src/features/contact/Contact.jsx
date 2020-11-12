@@ -183,12 +183,6 @@ export default function Contact({ handleClose }) {
                   <strike>Send</strike>
                 </button>
               )}
-              <button
-                className={`${styles.contact__button} ${styles.contact__button__reset}`}
-                onClick={handleReset}
-              >
-                Reset
-              </button>
             </div>
           </form>
         </div>
