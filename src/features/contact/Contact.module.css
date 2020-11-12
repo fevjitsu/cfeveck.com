@@ -63,7 +63,17 @@ form {
 .contact__button__close:hover {
   background-color: #d73851;
 }
-
+.modal__root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  flex-grow: 1;
+  background-color: #292b2c;
+  position: fixed;
+  padding: 2rem;
+  top: 20%;
+}
 @media only screen and (max-device-width: 600px) {
   .root {
     margin: 0.2rem;
