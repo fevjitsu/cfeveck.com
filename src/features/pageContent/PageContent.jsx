@@ -12,21 +12,22 @@ export default function PageContent({ pageType }) {
             <div>
               <h1>A little more about me.</h1>
               <p>
-                As a software developer I am often presented with tasks where I
-                employ solutions. Troubleshooting issues however, is not
-                restricted to technology and should be emplored in the community
-                to improve the standards of all its members. As a problem solver
-                it is my duty to improve my communities to the best of my
-                current abilities.
+                As a web developer I create web applications or websites using
+                well supported tools to avoid delays in product creation. I also
+                host using reliable services that scale as a product grows.
+                Improve a product's visibility using Search Engine Optimization
+                analytics. I offer all of my services on a scale so let's
+                connect and create something amazing.
               </p>
               <p>
-                En tant que développeur de logiciels, on me présente souvent des
-                tâches où j’emploie des solutions. Toutefois, les problèmes de
-                dépannage ne se limitent pas à la technologie et devraient être
-                emporés dans la communauté pour améliorer les normes de tous ses
-                membres. En tant que solutionneur de problèmes, il est de mon
-                devoir d’améliorer mes communautés au mieux de mes capacités
-                actuelles.
+                En tant que développeur Web, je crée des applications Web ou des
+                sites Web à l'aide d'outils bien pris en charge pour éviter les
+                retards dans la création de produits. J'héberge également des
+                services fiables qui évoluent à mesure que le produit se
+                développe. Améliorez la visibilité d'un produit à l'aide des
+                analyses d'optimisation des moteurs de recherche. J'offre tous
+                mes services à une échelle alors connectons-nous et créons
+                quelque chose d'extraordinaire.
               </p>
             </div>
             <div id="about__lists__container">
