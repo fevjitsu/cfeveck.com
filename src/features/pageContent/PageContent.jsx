@@ -1,6 +1,6 @@
 import React from "react";
 import List from "../lists/List";
-import Contact from "../forms/Contact";
+import Contact from "../contact/Contact";
 import styles from "./PageContent.module.css";
 
 export default function PageContent({ pageType }) {

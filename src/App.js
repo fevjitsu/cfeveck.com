@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "normalize.css";
 import "./App.css";
-import PageContent from "./features/displayContent/PageContent";
+import PageContent from "./features/pageContent/PageContent";
 
 export default function App() {
   let [home, setHome] = useState(true);
