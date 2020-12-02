@@ -1,5 +1,27 @@
-.page__content__root{
-    display: block;
-    height: 100%;
-     
+.page__content__root {
+  height: 80vh;
+  width: 100vw;
+}
+.contact__icon__container {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem;
+}
+.contact__icon {
+  height: 80px;
+  width: 80px;
+  background-color: #f7f7f7;
+  padding: 5px;
+  border-radius: 5px;
+  opacity: 0.8;
+}
+#home__layout {
+  position: relative;
+  top: 30%;
+}
+
+@media all and (max-width: 600px) {
+  .page__content__root {
+    max-height: 68vh;
+  }
 }

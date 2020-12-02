@@ -19,6 +19,7 @@ export default function Contact({ handleClose }) {
     setPhone("");
     setName("");
     setMessage("");
+    handleClose();
   };
   const handleSubmit = (e) => {
     e.preventDefault();

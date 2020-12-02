@@ -16,7 +16,7 @@ export default function List({ collection, unordered }) {
                   data-aos="fade-up"
                   className={styles.ul__li}
                 >
-                  <div className={styles.ul__li__headers}>
+                  <div>
                     <div
                       className={styles.ul__li__title}
                       style={{ cursor: "pointer" }}
@@ -47,7 +47,7 @@ export default function List({ collection, unordered }) {
                     )}
                   </div>
 
-                  <div className={styles.ul__li__paragraph}>
+                  <div>
                     {item.url ? (
                       <a href={item.url}>{item.paragraph}</a>
                     ) : (
@@ -70,7 +70,7 @@ export default function List({ collection, unordered }) {
                   data-aos="fade-up"
                   className={styles.ol__li}
                 >
-                  <div className={styles.ol__li__headers}>
+                  <div>
                     <div
                       className={styles.ol__li__title}
                       style={{ cursor: "pointer" }}
@@ -101,7 +101,7 @@ export default function List({ collection, unordered }) {
                     )}
                   </div>
 
-                  <div className={styles.ol__li__paragraph}>
+                  <div>
                     {item.url ? (
                       <a href={item.url}>{item.paragraph}</a>
                     ) : (

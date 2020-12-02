@@ -64,41 +64,27 @@ export default function App() {
             >
               Portfolio
             </li>
-            {/* <li
-              onClick={() => {
-                setRegister(true);
-                setHome(false);
-                setAbout(false);
-                setContact(false);
-                setPortfolio(false);
-                setLogin(false);
-              }}
-            >
-              <strike>Register/Log In</strike>
-            </li> */}
           </ul>
         </nav>
       </header>
       <div className="cover">
         <div id="viewContainer">
-          <div>{home && <PageContent pageType={"home"} />}</div>
-          <div>{about && <PageContent pageType={"about"} />}</div>
-          <div>{contact && <PageContent pageType={"contact"} />}</div>
-          <div>{portfolio && <PageContent pageType={"portfolio"} />}</div>
-          <div>{login && <PageContent pageType={"login"} />}</div>
-          <div>{register && <PageContent pageType={"register"} />}</div>
+          {home && <PageContent pageType={"home"} />}
+          {about && <PageContent pageType={"about"} />}
+          {contact && <PageContent pageType={"contact"} />}
+          {portfolio && <PageContent pageType={"portfolio"} />}
+          {login && <PageContent pageType={"login"} />}
+          {register && <PageContent pageType={"register"} />}
         </div>
         <div id="madeby">
-          <span>
-            Photo by{" "}
-            <a
-              href="https://twitter.com/CFeveck"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Chris Feveck
-            </a>
-          </span>
+          <a
+            id="madeby__link"
+            href="https://twitter.com/CFeveck"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Photo by:&nbsp;Chris Feveck
+          </a>
         </div>
       </div>
     </div>
