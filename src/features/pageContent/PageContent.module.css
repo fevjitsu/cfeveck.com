@@ -1,27 +1,23 @@
-.page__content__root {
-  height: 80vh;
-  width: 100vw;
+.home__layout {
+  margin: 0rem 4rem;
 }
-.contact__icon__container {
-  display: flex;
-  justify-content: center;
-  margin: 0.5rem;
+.about__layout {
+  margin: 0rem 4rem;
+}
+.portfolio__layout {
+  margin: 0rem 4rem;
+}
+.contact__layout {
+  margin: 0rem 4rem;
 }
 .contact__icon {
   height: 80px;
-  width: 80px;
-  background-color: #f7f7f7;
-  padding: 5px;
-  border-radius: 5px;
-  opacity: 0.8;
-}
-#home__layout {
-  position: relative;
-  top: 30%;
+  color: #fff;
+  cursor: pointer;
 }
 
-@media all and (max-width: 600px) {
-  .page__content__root {
-    max-height: 68vh;
-  }
+.page__content__root {
+  background-color: #ff686b;
+  width: 100vw;
+  opacity: 0.9;
 }

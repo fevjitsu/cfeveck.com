@@ -9,9 +9,11 @@ export default function PageContent({ pageType }) {
   let [showAboutSocial, setShowAboutSocial] = useState(false);
   if (pageType === "about") {
     return (
-      <div className={styles.page__content__root}>
+      <div
+        className={`${styles.about__container} ${styles.page__content__root}`}
+      >
         <div className="animate__animated animate__backInLeft">
-          <div id={styles.about__layout}>
+          <div className={styles.about__layout}>
             {showAboutCertificates || showAboutSocial ? null : (
               <div id={styles.about__layout__paragraphs}>
                 <h1>A little more about what I do.</h1>
@@ -30,7 +32,7 @@ export default function PageContent({ pageType }) {
                 {showAboutCertificates && !showAboutSocial ? (
                   <h2
                     style={{ cursor: "pointer" }}
-                    className="active"
+                    className="active animate__animated animate__bounce animate__delay-2s"
                     onClick={() => {
                       setShowAboutCertificates(!showAboutCertificates);
                       setShowAboutSocial(false);
@@ -41,6 +43,7 @@ export default function PageContent({ pageType }) {
                 ) : (
                   <h2
                     style={{ cursor: "pointer" }}
+                    className="animate__animated animate__bounce animate__delay-2s"
                     onClick={() => {
                       setShowAboutCertificates(!showAboutCertificates);
                       setShowAboutSocial(false);
@@ -52,21 +55,6 @@ export default function PageContent({ pageType }) {
                 {showAboutCertificates && !showAboutSocial && (
                   <List
                     collection={[
-                      {
-                        title: "Bachelors of Science in Computing Science",
-                        paragraph:
-                          "I obtained my BSc in Comp. Sci with a minor in Psychology from The Kings' University in Edmonton, Alberta. I graduated on January, 2018.",
-                        // image: {
-                        //   src:
-                        //     "https://firebasestorage.googleapis.com/v0/b/portfolio-231ae.appspot.com/o/certificates%2FThe%20Modern%20JS%20bootcamp%20nov5%202020.jpg?alt=media&token=462beee5-d9fa-4e6c-94f1-c8ae4ef7a0ff",
-                        //   alt: "The modern javascript bootcamp certificate",
-                        // },
-                        // url:
-                        //   "https://firebasestorage.googleapis.com/v0/b/portfolio-231ae.appspot.com/o/certificates%2FThe%20Modern%20JS%20bootcamp%20nov5%202020.jpg?alt=media&token=462beee5-d9fa-4e6c-94f1-c8ae4ef7a0ff",
-
-                        handleClick: function () {},
-                      },
-
                       {
                         title: "PHP for Beginners - Become a PHP Master",
                         paragraph:
@@ -125,20 +113,6 @@ export default function PageContent({ pageType }) {
 
                         handleClick: function () {},
                       },
-                      {
-                        title: "Advanced Open Water Diver",
-                        paragraph:
-                          "Cert# 206711. I am looking to get more diving experience in Alberta in the up coming summer period. Always nice to see the world from different perspectives.",
-                        // image: {
-                        //   src:
-                        //     "https://firebasestorage.googleapis.com/v0/b/portfolio-231ae.appspot.com/o/certificates%2FThe%20Modern%20JS%20bootcamp%20nov5%202020.jpg?alt=media&token=462beee5-d9fa-4e6c-94f1-c8ae4ef7a0ff",
-                        //   alt: "The modern javascript bootcamp certificate",
-                        // },
-                        // url:
-                        //   "https://firebasestorage.googleapis.com/v0/b/portfolio-231ae.appspot.com/o/certificates%2FThe%20Modern%20JS%20bootcamp%20nov5%202020.jpg?alt=media&token=462beee5-d9fa-4e6c-94f1-c8ae4ef7a0ff",
-
-                        handleClick: function () {},
-                      },
                     ]}
                   />
                 )}
@@ -147,7 +121,7 @@ export default function PageContent({ pageType }) {
                 {!showAboutCertificates && showAboutSocial ? (
                   <h2
                     style={{ cursor: "pointer" }}
-                    className="active"
+                    className="active animate__animated animate__bounce animate__delay-2s"
                     onClick={() => {
                       setShowAboutSocial(!showAboutSocial);
                       setShowAboutCertificates(false);
@@ -158,6 +132,7 @@ export default function PageContent({ pageType }) {
                 ) : (
                   <h2
                     style={{ cursor: "pointer" }}
+                    className="animate__animated animate__bounce animate__delay-2s"
                     onClick={() => {
                       setShowAboutSocial(!showAboutSocial);
                       setShowAboutCertificates(false);
@@ -170,12 +145,6 @@ export default function PageContent({ pageType }) {
                 {showAboutSocial && !showAboutCertificates && (
                   <List
                     collection={[
-                      {
-                        title: "Twitter - @Cfeveck",
-                        paragraph:
-                          "Online community engagement with developers helps keep me in the loop and inspired. The twitter dev community always has something to share.",
-                        url: "https://twitter.com/CFeveck",
-                      },
                       {
                         title: "GitHub",
                         paragraph:
@@ -200,16 +169,16 @@ export default function PageContent({ pageType }) {
     );
   } else if (pageType === "contact") {
     return (
-      <div className={styles.page__content__root}>
+      <div
+        className={`${styles.contact__container} ${styles.page__content__root}`}
+      >
         <div className="animate__animated animate__fadeInDown">
-          <h1>Let's connect.</h1>
-
-          <div id="contact__layout">
+          <div className={`${styles.contact__layout}`}>
             {!showContact && (
               <React.Fragment>
-                {" "}
+                <h1>Let's connect.</h1>
                 <div
-                  className={styles.contact__icon__container}
+                  className={`animate__animated animate__bounce animate__delay-2s ${styles.contact__icon__container}`}
                   onClick={() => {
                     setShowContact(true);
                   }}
@@ -244,44 +213,44 @@ export default function PageContent({ pageType }) {
     );
   } else if (pageType === "portfolio") {
     return (
-      <div className={styles.page__content__root}>
+      <div
+        className={`${styles.portfolio__container} ${styles.page__content__root}`}
+      >
         <div className="animate__animated animate__fadeInUp">
-          <div className="portfolio__lists__layout">
+          <div className={`${styles.portfolio__layout}`}>
             <div>
-              <h1>This is a list of my own projects.</h1>
-              <div id="portfolio__layout">
-                <div>
-                  <p>
-                    As a web developer I create web apps and websites using well
-                    supported tools. I also host and provide search engine
-                    optimization for sites. Check out some of my projects.
-                  </p>
-                  {/* <p>
+              <div>
+                <h1>This is a list of my own projects.</h1>
+                <p>
+                  As a web developer I create web apps and websites using well
+                  supported tools. I also host and provide search engine
+                  optimization for sites. Check out some of my projects.
+                </p>
+                {/* <p>
                     En tant que développeur Web, je crée des applications Web et
                     des sites Web à l'aide d'outils bien pris en charge.
                     J'héberge et assure également l'optimisation des moteurs de
                     recherche de sites. Découvrez certains de mes projets
                     répertoriés.
                   </p> */}
-                </div>
-                <div>
-                  <List
-                    collection={[
-                      {
-                        title: "The Cookbook",
-                        paragraph:
-                          "A hub of recipies I have tried and would like to share with everyone. ",
-                        url: "https://cookbook-ac8a6.web.app/",
-                      },
-                      {
-                        title: "Mobile Pet Grooming",
-                        paragraph:
-                          "Let our team of pet care experts give you pets that extra care they deserve. ",
-                        url: "https://petgrooming-bad02.web.app/",
-                      },
-                    ]}
-                  />
-                </div>
+              </div>
+              <div>
+                <List
+                  collection={[
+                    {
+                      title: "The Cookbook",
+                      paragraph:
+                        "A hub of recipies I have tried and would like to share with everyone. ",
+                      url: "https://cookbook-ac8a6.web.app/",
+                    },
+                    {
+                      title: "Mobile Pet Grooming",
+                      paragraph:
+                        "Let our team of pet care experts give you pets that extra care they deserve. ",
+                      url: "https://petgrooming-bad02.web.app/",
+                    },
+                  ]}
+                />
               </div>
             </div>
           </div>
@@ -301,7 +270,9 @@ export default function PageContent({ pageType }) {
   // }
   else if (pageType === "register") {
     return (
-      <div className={styles.page__content__root}>
+      <div
+        className={`${styles.register__container} ${styles.page__content__root}`}
+      >
         {" "}
         <div className="animate__animated animate__backInRight">
           <h1>
@@ -315,16 +286,14 @@ export default function PageContent({ pageType }) {
     );
   } else {
     return (
-      <div className={styles.page__content__root}>
+      <div
+        className={`${styles.home__container} ${styles.page__content__root}`}
+      >
         <div
-          id={styles.home__layout}
-          className="animate__animated animate__backInUp"
+          className={`animate__animated animate__backInUp ${styles.home__layout}`}
         >
           <h1>Hi, I'm Chris, a freelancing web developer.</h1>
-          <h2>
-            Look through my web app since you're here.{" "}
-            {/* <strike>and share your thoughts</strike>. */}
-          </h2>
+          <h2>Look through my web app since you're here.</h2>
         </div>
       </div>
     );

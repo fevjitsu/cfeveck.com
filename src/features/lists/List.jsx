@@ -47,12 +47,8 @@ export default function List({ collection, unordered }) {
                     )}
                   </div>
 
-                  <div>
-                    {item.url ? (
-                      <a href={item.url}>{item.paragraph}</a>
-                    ) : (
-                      item.paragraph
-                    )}
+                  <div className={styles.ul__li__paragraph}>
+                    {item.paragraph}
                   </div>
                 </li>
               );
@@ -101,12 +97,8 @@ export default function List({ collection, unordered }) {
                     )}
                   </div>
 
-                  <div>
-                    {item.url ? (
-                      <a href={item.url}>{item.paragraph}</a>
-                    ) : (
-                      item.paragraph
-                    )}
+                  <div className={styles.ol__li__paragraph}>
+                    {item.paragraph}
                   </div>
                 </li>
               );

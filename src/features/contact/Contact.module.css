@@ -4,6 +4,7 @@
 }
 .warning {
   border-color: red;
+  color: red;
   font-weight: lighter;
 }
 input {
@@ -14,17 +15,7 @@ input {
 }
 .contact__button {
   border: none;
-  color: white;
-  padding: 15px 32px;
-  margin: 0.2rem;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1rem;
-}
-.contact__button:hover {
-  border: none;
-  color: white;
+  color: #fff;
   padding: 15px 32px;
   margin: 0.2rem;
   text-align: center;
@@ -43,16 +34,16 @@ form {
   justify-self: flex-end;
 }
 .contact__button__send {
-  background-color: transparent;
+  background-color: #ffa69e;
   transition: background-color 500ms;
 }
 .contact__button__send:hover {
-  background-color: #ef3f5a;
+  background-color: #ff686b;
 }
 
 .contact__button__close {
-  background-color: #ef3f5a;
-  opacity: 0.7;
+  background-color: #ffa69e;
+  opacity: 0.9;
   transition: background-color 500ms, opacity 500ms;
 }
 .contact__button__close:hover {
@@ -95,26 +86,5 @@ form {
   form {
     display: flex;
     flex-direction: column;
-  }
-  .contact__button__close__container {
-    display: flex;
-    flex-direction: row;
-    justify-self: flex-end;
-  }
-  .contact__button__send {
-    background-color: transparent;
-    transition: background-color 500ms;
-  }
-  .contact__button__send:hover {
-    background-color: #ef3f5a;
-  }
-
-  .contact__button__close {
-    background-color: #ef3f5a;
-    opacity: 0.7;
-    transition: background-color 500ms;
-  }
-  .contact__button__close:hover {
-    background-color: #d73851;
   }
 }

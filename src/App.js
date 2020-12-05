@@ -12,9 +12,10 @@ export default function App() {
   let [portfolio, setPortfolio] = useState(false);
 
   return (
-    <div className="container">
+    <div className="App">
       <header>
-        <h2
+        <div
+          className="button"
           onClick={() => {
             setHome(true);
             setAbout(false);
@@ -25,10 +26,11 @@ export default function App() {
           }}
         >
           Home
-        </h2>
+        </div>
         <nav>
           <ul>
             <li
+              className="button"
               onClick={() => {
                 setAbout(true);
                 setHome(false);
@@ -41,6 +43,7 @@ export default function App() {
               About
             </li>
             <li
+              className="button"
               onClick={() => {
                 setContact(true);
                 setHome(false);
@@ -53,6 +56,7 @@ export default function App() {
               Contact
             </li>
             <li
+              className="button"
               onClick={() => {
                 setPortfolio(true);
                 setHome(false);
@@ -67,7 +71,7 @@ export default function App() {
           </ul>
         </nav>
       </header>
-      <div className="cover">
+      <main>
         <div id="viewContainer">
           {home && <PageContent pageType={"home"} />}
           {about && <PageContent pageType={"about"} />}
@@ -76,17 +80,17 @@ export default function App() {
           {login && <PageContent pageType={"login"} />}
           {register && <PageContent pageType={"register"} />}
         </div>
-        <div id="madeby">
+        <div id="madeBy">
           <a
-            id="madeby__link"
             href="https://twitter.com/CFeveck"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Photo by:&nbsp;Chris Feveck
+            Photo by:&nbsp;Chris Feveck&nbsp;
+            <img src="favicon-32x32.png" alt="Chris Feveck" />
           </a>
         </div>
-      </div>
+      </main>
     </div>
   );
 }
