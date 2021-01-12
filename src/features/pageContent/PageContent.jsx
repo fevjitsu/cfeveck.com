@@ -243,12 +243,6 @@ export default function PageContent({ pageType }) {
                         "A hub of recipies I have tried and would like to share with everyone. ",
                       url: "https://cookbook-ac8a6.web.app/",
                     },
-                    {
-                      title: "Mobile Pet Grooming",
-                      paragraph:
-                        "Let our team of pet care experts give you pets that extra care they deserve. ",
-                      url: "https://petgrooming-bad02.web.app/",
-                    },
                   ]}
                 />
               </div>

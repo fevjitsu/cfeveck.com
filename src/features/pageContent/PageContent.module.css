@@ -20,4 +20,6 @@
   background-color: #ff686b;
   width: 100vw;
   opacity: 0.9;
+  overflow-y: auto;
+  height: 50%;
 }

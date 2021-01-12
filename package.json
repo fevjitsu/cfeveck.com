@@ -11,15 +11,14 @@
     "@testing-library/user-event": "^7.2.1",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
+    "autoprefixer": "^9.8.6",
     "firebase": "^7.22.1",
-    "normalize.css": "^8.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-modal": "^3.11.2",
     "react-recaptcha": "^2.3.10",
     "react-redux": "^7.2.1",
     "react-scripts": "3.4.3",
-    "uid": "^2.0.0",
     "validator": "^13.1.17"
   },
   "scripts": {

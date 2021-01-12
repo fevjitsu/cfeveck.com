@@ -2,7 +2,6 @@ body {
   font-family: "Open Sans", sans-serif;
   color: #fff;
   font-size: larger;
-  overflow: hidden;
   background-image: url("https://firebasestorage.googleapis.com/v0/b/portfolio-231ae.appspot.com/o/images%2FNearFairmontHotel.jpg?alt=media&token=a486d939-5195-43c5-87e7-c3da45069f68");
   background-size: cover;
   background-position: center;
@@ -137,5 +136,9 @@ header ul li {
   bottom: 0;
   right: 0;
   z-index: 5;
+}
+
+.photoBy__image {
+  border-radius: 25px;
 }
 /*# sourceMappingURL=App.css.map */

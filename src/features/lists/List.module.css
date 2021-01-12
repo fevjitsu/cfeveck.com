@@ -1,5 +1,7 @@
 .ol__root {
   background-color: #ffa69e;
+  height: 100%;
+  overflow-y: auto;
 }
 .ol__li {
   list-style-type: upper-roman;
@@ -11,6 +13,8 @@
 }
 .ul__root {
   background-color: #ffa69e;
+  height: 100%;
+  overflow-y: auto;
 }
 .ul__li {
   list-style-type: none;
