@@ -18,6 +18,8 @@ export default function PageContent({ pageType }) {
               <div id={styles.about__layout__paragraphs}>
                 <h1>A little more about what I do.</h1>
                 <p>
+
+                  
                   As a web developer I create web applications or websites using
                   well supported tools to avoid delays in product creation. I
                   also host using reliable services that scale as a product
