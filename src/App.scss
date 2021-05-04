@@ -1,29 +1,30 @@
 body {
   font-family: "Open Sans", sans-serif;
-  // background-color: #ff686b;
+  background-color: #ff686b;
   color: #fff;
   font-size: larger;
   background-image: url("https://firebasestorage.googleapis.com/v0/b/portfolio-231ae.appspot.com/o/images%2FNearFairmontHotel.jpg?alt=media&token=a486d939-5195-43c5-87e7-c3da45069f68");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat, repeat;
-  background-color: #ff686b;
+  height: 100vh;
+  overflow: hidden;
 }
 /* width */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #ff686b;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 /* Handle on hover */
@@ -63,23 +64,6 @@ a:active {
   transition: background-color 500ms;
   background-color: #ffa69e;
 }
-header {
-  display: flex;
-  flex-flow: row wrap;
-  -ms-flex-flow: row wrap;
-  justify-content: space-between;
-  div {
-    cursor: pointer;
-  }
-}
-header ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  li {
-    cursor: pointer;
-  }
-}
 
 .button {
   background-color: #ff686b;
@@ -94,14 +78,7 @@ header ul {
   transition: background-color 500ms;
   background-color: #ffa69e;
 }
-#viewContainer {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+
 #madeBy {
   position: fixed;
   bottom: 0%;
@@ -110,4 +87,10 @@ header ul {
 }
 .photoBy__image {
   border-radius: 25px;
+}
+.general_padding {
+  padding: 0.5rem;
+}
+.general_margin {
+  margin: 0.5rem;
 }

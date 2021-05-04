@@ -3,7 +3,14 @@ import List from "../lists/List";
 import Contact from "../contact/Contact";
 import styles from "./PageContent.module.css";
 
-export default function PageContent({ pageType }) {
+export default function PageContent({
+  home,
+  about,
+  contact,
+  login,
+  register,
+  portfolio,
+}) {
   let [showContact, setShowContact] = useState(false);
   let [showAboutCertificates, setShowAboutCertificates] = useState(false);
   let [showAboutSocial, setShowAboutSocial] = useState(false);
@@ -18,8 +25,6 @@ export default function PageContent({ pageType }) {
               <div id={styles.about__layout__paragraphs}>
                 <h1>A little more about what I do.</h1>
                 <p>
-
-                  
                   As a web developer I create web applications or websites using
                   well supported tools to avoid delays in product creation. I
                   also host using reliable services that scale as a product

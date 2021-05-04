@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
 import isEmail from "validator/lib/isEmail";
 import isMobilePhone from "validator/lib/isMobilePhone";
-import Recaptcha from "react-recaptcha";
+
 import Modal from "react-modal";
 import styles from "./Contact.module.css";
-import database from "../../db/firebase";
+import database from "../../firebaseConnection/firebase";
 export default function Contact({ handleClose }) {
-  const recaptchaKey = process.env.REACT_APP_RECAPTCHA;
-
   let [message, setMessage] = useState("");
   let [name, setName] = useState("");
   let [email, setEmail] = useState("");
   let [phone, setPhone] = useState("");
   let [approved, setApproved] = useState(false);
   let [messageSent, setMessageSent] = useState(false);
+  const onSubmit = (token) => {};
   const handleReset = () => {
     setEmail("");
     setPhone("");
@@ -72,6 +71,7 @@ export default function Contact({ handleClose }) {
       </Modal>
     );
   };
+
   useEffect(() => {
     setMessageSent(false);
   }, []);
@@ -163,9 +163,6 @@ export default function Contact({ handleClose }) {
               value={message}
             />
 
-            <div id="recaptchaVerification">
-              <Recaptcha sitekey={recaptchaKey} />
-            </div>
             <MessageSentModal />
             <div>
               {approved ? (
