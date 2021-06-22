@@ -13,7 +13,7 @@ export default function App() {
   let [login, setLogin] = useState(false);
   let [register, setRegister] = useState(false);
   let [portfolio, setPortfolio] = useState(false);
-<<<<<<< HEAD
+
   let [page, setPage] = useState("home");
   const navigator = {
     handleHome: () => {
@@ -254,7 +254,5 @@ export default function App() {
         </a>
       </div>
     </div>
-
-
   );
 }

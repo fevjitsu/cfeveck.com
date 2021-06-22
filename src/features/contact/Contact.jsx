@@ -163,12 +163,6 @@ export default function Contact({ handleClose }) {
               value={message}
             />
 
-<<<<<<< HEAD
-            <div id="recaptchaVerification">
-              {/* <Recaptcha sitekey={recaptchaKey} /> */}
-            </div>
-=======
->>>>>>> 195bf678a96667b977a31d80c13ef121900d13ac
             <MessageSentModal />
             <div>
               {approved ? (
