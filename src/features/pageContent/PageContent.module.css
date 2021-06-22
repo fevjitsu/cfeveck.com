@@ -17,9 +17,9 @@
 }
 
 .page__content__root {
-  background-color: #ff686b;
+  /* background-color: #ff686b; */
   width: 100vw;
   opacity: 0.9;
-  overflow-y: auto;
+  overflow-y: hidden;
   height: 50%;
 }

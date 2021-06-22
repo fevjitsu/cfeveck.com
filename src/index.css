@@ -15,6 +15,7 @@ html {
 body {
   margin: 0em;
   padding: 0em;
+  overflow: hidden;
 }
 /* Sections
  * ========================================================================== */

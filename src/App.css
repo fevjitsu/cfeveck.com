@@ -1,4 +1,4 @@
-body {
+.App {
   font-family: "Open Sans", sans-serif;
   color: #fff;
   font-size: larger;
@@ -6,12 +6,13 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat, repeat;
-  background-color: #ff686b;
+  height: 100vh;
+  width: 100%;
 }
 
 /* width */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
 
 /* Track */
@@ -111,30 +112,51 @@ header ul li {
   background-color: #ffa69e;
 }
 
-#viewContainer {
+.home__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  margin-top: 20rem;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 100vh;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  opacity: 0.8;
+}
+
+.page__main {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.page__main__image {
+  position: relative;
+  left: 50%;
+}
+
+.page__image {
+  border-radius: 100px;
+  border: 4px inset #ff686b;
+}
+
+.paper__title {
+  margin: 0.2rem;
+  padding: 0.2rem;
+  font-size: 3rem;
+}
+
+.paper__subtitle {
+  margin: 0.2rem;
+  padding: 0.2rem;
+  font-size: 2.5rem;
 }
 
 #madeBy {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  position: fixed;
+  bottom: 0%;
+  right: 0%;
   z-index: 5;
 }
 

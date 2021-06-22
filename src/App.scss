@@ -1,4 +1,4 @@
-body {
+.App {
   font-family: "Open Sans", sans-serif;
   // background-color: #ff686b;
   color: #fff;
@@ -7,11 +7,12 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat, repeat;
-  background-color: #ff686b;
+  height: 100vh;
+  width: 100%;
 }
 /* width */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
 
 /* Track */
@@ -94,13 +95,35 @@ header ul {
   transition: background-color 500ms;
   background-color: #ffa69e;
 }
-#viewContainer {
+.home__container {
   display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+  margin-top: 20rem;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  align-content: center;
+  opacity: 0.8;
+}
+.page__main {
+  display: inline-flex;
+}
+.page__main__image__container {
+}
+.page__main__image {
+  position: relative;
+  left: 50%;
+}
+.page__image {
+  border-radius: 100px;
+  border: 4px inset #ff686b;
+}
+.paper__title {
+  margin: 0.2rem;
+  padding: 0.2rem;
+  font-size: 3rem;
+}
+.paper__subtitle {
+  margin: 0.2rem;
+  padding: 0.2rem;
+  font-size: 2.5rem;
 }
 #madeBy {
   position: fixed;
