@@ -5,6 +5,7 @@ import DefinitionCard from "./features/pageContent/DefinitionCard";
 import MediaCard from "./features/pageContent/MediaCard";
 import { Container, Box, Paper, Grid } from "@material-ui/core";
 import Contact from "./features/contact/Contact";
+
 export default function App() {
   let [home, setHome] = useState(true);
   let [about, setAbout] = useState(false);
@@ -12,6 +13,7 @@ export default function App() {
   let [login, setLogin] = useState(false);
   let [register, setRegister] = useState(false);
   let [portfolio, setPortfolio] = useState(false);
+<<<<<<< HEAD
   let [page, setPage] = useState("home");
   const navigator = {
     handleHome: () => {
@@ -252,5 +254,7 @@ export default function App() {
         </a>
       </div>
     </div>
+
+
   );
 }
