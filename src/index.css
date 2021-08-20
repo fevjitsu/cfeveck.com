@@ -13,9 +13,10 @@ html {
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 body {
+  font-family: "Open Sans", sans-serif;
   margin: 0em;
   padding: 0em;
-  overflow: hidden;
+  background-color: #f97171;
 }
 /* Sections
  * ========================================================================== */

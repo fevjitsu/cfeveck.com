@@ -1,5 +1,4 @@
 .App {
-  font-family: "Open Sans", sans-serif;
   background-color: #ff686b;
   color: #fff;
   font-size: larger;
@@ -36,26 +35,26 @@
 }
 /* unvisited link */
 a:link {
-  color: #fff;
+  color: #292b2c;
 }
 
 /* visited link */
 a:visited {
-  color: #fff;
+  color: #292b2c;
 }
 
 /* mouse over link */
 a:hover {
-  color: #fff;
+  color: #292b2c;
 }
 
 /* selected link */
 a:active {
-  color: #fff;
+  color: #292b2c;
 }
 a:link,
 a:visited {
-  background-color: #ff686b;
+  background-color: #8ad6cc;
   padding: 14px 25px;
   text-align: center;
   text-decoration: none;
@@ -65,11 +64,11 @@ a:visited {
 a:hover,
 a:active {
   transition: background-color 500ms;
-  background-color: #ffa69e;
+  background-color: #66beb2;
 }
 
 .button {
-  background-color: #ff686b;
+  background-color: #8ad6cc;
   color: #fff;
   padding: 14px 25px;
   text-align: center;
@@ -79,7 +78,7 @@ a:active {
 }
 .button:hover {
   transition: background-color 500ms;
-  background-color: #ffa69e;
+  background-color: #66beb2;
 }
 
 .home__container {

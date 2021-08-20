@@ -1,0 +1,77 @@
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 2rem;
+  height: 100%;
+}
+
+.landing-container {
+  height: 100%;
+  background-color: #f97171;
+}
+
+.landing-image {
+  height: 30vh;
+  width: 40vw;
+  border-radius: 1rem;
+  border: outset 4px #fff;
+}
+
+.jumbotron {
+  background-color: #f99192;
+}
+
+.icon-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.icon-list > a {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  background-color: #f97171 !important;
+}
+
+p {
+  font-size: larger;
+}
+
+.blog-list {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+}
+
+.blog {
+  border: outset 4px #fff;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.blog-image {
+  height: 20vh;
+  position: relative;
+}
+
+.blogs-container {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 75%;
+}
+
+.peeking-image {
+  height: 200px;
+  max-width: 100vw;
+}
+/*# sourceMappingURL=Landing.css.map */
