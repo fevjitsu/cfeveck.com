@@ -1,7 +1,7 @@
 .blog {
   border: outset 4px #fff;
   border-radius: 4px;
-  padding: 1rem;
+  padding: 4rem;
   margin: 1rem;
 }
 .blogImage {
@@ -11,8 +11,12 @@
 .blogs {
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 75%;
+  max-height: 75%;
 }
 .blogParagraph {
   position: relative;
+}
+.cardRoot {
+  height: 140px;
+  max-width: 345px;
 }

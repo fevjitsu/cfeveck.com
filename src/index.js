@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Landing from "./Landing";
+import App from "./App";
 import store from "./app/store";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
@@ -11,7 +11,7 @@ AOS.init();
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Landing />
+      <App />
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

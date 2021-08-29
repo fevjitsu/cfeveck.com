@@ -12,52 +12,62 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "space-around",
-    overflow: "hidden",
-    backgroundColor: theme.palette.background.paper,
+    // overflow: "hidden",
+    // backgroundColor: theme.palette.background.paper,
   },
   gridList: {
-    width: "100vw",
-    height: "60vh",
+    width: "100%",
+    maxHeight: "40%",
   },
+
   icon: {
     color: "rgba(255, 255, 255, 0.54)",
   },
+  font: {
+    fontSize: "x-large",
+
+    marginBottom: "2rem",
+  },
 }));
 
-export default function TitlebarGridList({ tileData }) {
+export default function Lister({ tileData }) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <GridList cellHeight={180} className={classes.gridList}>
-        <GridListTile key="Subheader" cols={2} style={{ height: "auto" }}>
-          <ListSubheader component="div">
-            This is my list of projects
+      <GridList cellHeight={360} className={classes.gridList}>
+        <GridListTile
+          key="Subheader"
+          cols={2}
+          className={classes.tile}
+          style={{ height: "auto" }}>
+          <ListSubheader component="div" className={classes.font}>
+            <hr />
+            To further my research of developer technologies I indulge in udemy.
+            These are a few courses I've completed.
+            <hr />
           </ListSubheader>
         </GridListTile>
-        {tileData.map((tile) => (
-          <GridListTile key={tile.image}>
-            <img src={tile.image} alt={tile.title} />
-            <GridListTileBar
-              title={tile.title}
-              subtitle={<span>by: {tile.author}</span>}
-              actionIcon={
-                <a
-                  href="https://petgrooming-bad02.web.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <IconButton
-                    aria-label={`info about ${tile.title}`}
-                    className={classes.icon}
-                  >
-                    <InfoIcon />
-                  </IconButton>
-                </a>
-              }
-            />
-          </GridListTile>
-        ))}
+        {tileData &&
+          tileData.length > 0 &&
+          tileData.map((tile) => (
+            <GridListTile data-aos="fade-up" key={tile.id}>
+              <img src={tile.src} alt={tile.alt} />
+              <GridListTileBar
+                title={tile.title}
+                subtitle={<span>{tile.subtitle}</span>}
+                actionIcon={
+                  <a href={tile.href} target="_blank" rel="noopener noreferrer">
+                    <IconButton
+                      aria-label={`info about ${tile.title}`}
+                      className={classes.icon}>
+                      <InfoIcon />
+                    </IconButton>
+                  </a>
+                }
+              />
+            </GridListTile>
+          ))}
       </GridList>
     </div>
   );

@@ -2,14 +2,33 @@ import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import styles from "./Modal.module.css";
 import isEmail from "validator/lib/isEmail";
-export default function MyModal({ openModal, afterOpenModal, closeModal }) {
+import database from "../../firebaseConnection/firebase";
+
+export default function MyModal({
+  openModal,
+  afterOpenModal,
+  closeModal,
+  title = "Hi, welcome to my site.",
+  subtitle = " Subscribe below and get the latest news on what's happening around here.",
+  buttonText = "Add me!",
+  handleSubmit,
+}) {
   let [email, setEmail] = useState("");
+  const portfolio = database.ref(`portfolioApp/emailList`);
+  const addToEmailList = (email) => {
+    portfolio
+      .push({ email })
+      .then(() => {
+        closeModal();
+      })
+      .catch((e) => {
+        console.log("failed::", e);
+      });
+  };
+
   useEffect(() => {
     Modal.setAppElement("body");
   }, []);
-  useEffect(() => {
-    console.log();
-  }, [email]);
 
   return (
     <Modal
@@ -25,20 +44,22 @@ export default function MyModal({ openModal, afterOpenModal, closeModal }) {
       </div>
 
       <div className={styles.container}>
-        <h1 className={styles.title}>Hi, welcome to my site.</h1>
-        <h4>
-          Subscribe below and get the latest news on what's happening around
-          here.
-        </h4>
+        <h1 className={styles.title}>{title}</h1>
+        <h4>{subtitle}</h4>
         <form
           className={styles.container}
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (isEmail(email.trim())) {
-              closeModal();
-              console.log("do something::submitted");
-            }
-          }}>
+          onSubmit={
+            handleSubmit
+              ? handleSubmit
+              : (e) => {
+                  e.preventDefault();
+                  if (isEmail(email.trim())) {
+                    closeModal();
+                    console.log("do something::submitted", email);
+                    addToEmailList(email);
+                  }
+                }
+          }>
           <input
             className={styles.input}
             placeholder="Enter Email"
@@ -48,7 +69,7 @@ export default function MyModal({ openModal, afterOpenModal, closeModal }) {
             required
           />
           <br />
-          <input className={styles.button} type={"submit"} value="Add me!" />
+          <input className={styles.button} type={"submit"} value={buttonText} />
         </form>
       </div>
     </Modal>

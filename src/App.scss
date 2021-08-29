@@ -91,8 +91,7 @@ a:active {
 .page__main {
   display: inline-flex;
 }
-.page__main__image__container {
-}
+
 .page__main__image {
   position: relative;
   left: 50%;
@@ -126,4 +125,87 @@ a:active {
 }
 .general_margin {
   margin: 0.5rem;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  height: 100%;
+}
+.landing-container {
+  height: 100%;
+  background-color: #f97171;
+}
+.landing-image {
+  height: 30vh;
+  width: 40vw;
+  border-radius: 1rem;
+  border: outset 4px #fff;
+}
+.jumbotron {
+  background-color: #f99192;
+}
+.icon-list {
+  display: flex;
+  flex-direction: row;
+}
+.icon-list > a {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  background-color: #f97171 !important;
+}
+p {
+  font-size: larger;
+}
+.blog-list {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+}
+.blog {
+  border: outset 4px #fff;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem;
+}
+.blog-image {
+  height: 20vh;
+  position: relative;
+}
+.blogs-container {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 75%;
+}
+.peeking-image {
+  height: 200px;
+  max-width: 100vw;
+}
+.dialog-enter {
+  opacity: 0.01;
+  transform: scale(1.1);
+}
+
+.dialog-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 300ms;
+}
+
+.dialog-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.dialog-exit-active {
+  opacity: 0.01;
+  transform: scale(1.1);
+  transition: all 300ms;
+}
+.logosList {
+  height: 60px;
+  width: 60px;
+  position: relative;
+  left: 100px;
+  top: 110px;
 }
