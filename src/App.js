@@ -27,6 +27,7 @@ import {
 } from "./features/blog/blogSlice";
 import { CircularProgress } from "@material-ui/core";
 import { uid } from "uid";
+import { database } from "firebase";
 export default function App() {
   const dispatch = useDispatch();
   const stableDispatch = useCallback(dispatch, []);
@@ -324,6 +325,9 @@ export default function App() {
         openModal={showUnsub}
         closeModal={() => setShowUnsub(false)}
         onClick={handleUnsub}
+        handleSubmit={(e) => {
+          e.preventDefault();
+        }}
       />
 
       <div style={{ marginTop: "2rem" }} className="jumbotron text-center">

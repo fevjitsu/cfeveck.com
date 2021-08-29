@@ -55,7 +55,6 @@ export default function MyModal({
                   e.preventDefault();
                   if (isEmail(email.trim())) {
                     closeModal();
-                    console.log("do something::submitted", email);
                     addToEmailList(email);
                   }
                 }
