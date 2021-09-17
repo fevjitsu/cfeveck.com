@@ -62,6 +62,7 @@ export default function MyModal({
           <input
             className={styles.input}
             placeholder="Enter Email"
+            name="email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}

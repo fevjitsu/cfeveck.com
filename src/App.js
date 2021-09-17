@@ -28,16 +28,17 @@ import {
 import { CircularProgress } from "@material-ui/core";
 import { uid } from "uid";
 import { database } from "firebase";
+import { removeEmailAsync } from "./features/emailer/emailSlice";
 export default function App() {
   const dispatch = useDispatch();
   const stableDispatch = useCallback(dispatch, []);
   const childClicked = useSelector(selectChild);
   const showBlogs = useSelector(selectShowBlogs);
   const selectIsBlogsLoading = useSelector(selectisLoading);
+  const showTravelAdvisor = useSelector(selectShowTravelAdvisor);
   const blogs = useSelector(selectBlogs);
   const [coordinates, setCoordinates] = useState({ lat: 0, lng: 0 });
   const [bounds, setBounds] = useState({});
-  const showTravelAdvisor = useSelector(selectShowTravelAdvisor);
   const [showMain, setShowMain] = useState(true);
   const [showUnsub, setShowUnsub] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -188,7 +189,7 @@ export default function App() {
               {selectIsBlogsLoading ? (
                 <CircularProgress size={"4rem"} />
               ) : (
-                <Blogger blogs={[...blogs].reverse()} />
+                <Blogger blogs={[...blogs].sort().reverse()} />
               )}
             </div>
           </div>
@@ -231,7 +232,6 @@ export default function App() {
         </div>
       );
   };
-  const handleUnsub = () => {};
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -239,6 +239,7 @@ export default function App() {
         setCoordinates({ lat: latitude, lng: longitude });
       }
     );
+
     setTimeout(() => setShowModal(true), 1500);
     // addInitialBlogs([
     //   {
@@ -319,14 +320,17 @@ export default function App() {
     <div className="landing-container">
       <MyModal openModal={showModal} closeModal={() => setShowModal(false)} />
       <UnsubModal
-        title="This removes you from the email list and you won't get any more notifications from me."
+        title="This removes you from the email list and you won't get any more notifications."
         subtitle="to unsubscribe"
         buttonText="remove me"
         openModal={showUnsub}
         closeModal={() => setShowUnsub(false)}
-        onClick={handleUnsub}
         handleSubmit={(e) => {
           e.preventDefault();
+          const email = e.target.email.value.trim();
+
+          stableDispatch(removeEmailAsync("emailList", email));
+          setShowUnsub(false);
         }}
       />
 
@@ -337,7 +341,11 @@ export default function App() {
       {DisplayTravelAdvisor(showTravelAdvisor)}
       {DisplayBlog(showBlogs, blogs)}
       {DisplayMain(showMain)}
-      <h6 style={{ cursor: "pointer" }} onClick={() => setShowUnsub(true)}>
+      <h6
+        style={{ cursor: "pointer" }}
+        onClick={() => {
+          setShowUnsub(true);
+        }}>
         &nbsp;unsubscribe here
       </h6>
     </div>

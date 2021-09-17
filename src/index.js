@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 import AOS from "aos";
 import "aos/dist/aos.css";
+
 AOS.init();
 ReactDOM.render(
   <React.StrictMode>
