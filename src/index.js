@@ -1,18 +1,45 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import App from "./App";
 import store from "./app/store";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
-import AOS from "aos";
-import "aos/dist/aos.css";
-
-AOS.init();
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { CssBaseline } from "@material-ui/core";
+import NotFound from "./pages/NotFound";
+import Home from "./pages/Home";
+import Blogger from "./features/blog/Blogger";
+import MapPage from "./pages/MapPage";
+import { CookiesProvider } from "react-cookie";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <CookiesProvider>
+        <CssBaseline />
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <App />
+            </Route>
+
+            <Route path="/home">
+              <Home />
+            </Route>
+
+            <Route path="/blogs">
+              <Blogger />
+            </Route>
+
+            <Route path="/restaurants">
+              <MapPage />
+            </Route>
+
+            <Route path="*">
+              <NotFound />
+            </Route>
+          </Switch>
+        </Router>
+      </CookiesProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

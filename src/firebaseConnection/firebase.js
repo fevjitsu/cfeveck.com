@@ -1,4 +1,5 @@
-import * as firebase from "firebase";
+import firebase from "firebase";
+
 //connect to the database in this file
 //that way other files in this project
 //will be able to use this file to
@@ -15,8 +16,8 @@ const firebaseConfig = {
   measurementId: process.env.REACT_APP_FIREBASE_MEASURMENT_ID,
 };
 firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
-const db = firebase.firestore();
-db.settings({ timestampsInSnapshots: true });
+// const database = firebase.database();
+const database = firebase.firestore();
+// db.settings({ timestampsInSnapshots: true });
 let googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-export { firebase, googleAuthProvider, db, database as default };
+export { firebase, googleAuthProvider, database as default };

@@ -1,13 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import contactReducer from "../features/contact/contactSlice";
-import travelAdvisorReducer from "../features/travelAdvisor/travelAdvisorSlice";
+import loginReducer from "../features/login/loginSlice";
 import blogReducer from "../features/blog/blogSlice";
-import emailReducer from "../features/emailer/emailSlice";
+import modalReducer from "../features/modal/myModalSlice";
+import travelReducer from "../features/travelAdvisor/travelAdvisorSlice";
 export default configureStore({
   reducer: {
-    contact: contactReducer,
-    travelAdvisor: travelAdvisorReducer,
+    login: loginReducer,
     blogger: blogReducer,
-    email: emailReducer,
+    myModal: modalReducer,
+    travelAdvisor: travelReducer,
   },
 });

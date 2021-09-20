@@ -1,83 +1,92 @@
-import React, { useEffect, useCallback, useRef } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { setLikeInc, setBlogsCollectionAsync, selectBlogs } from "./blogSlice";
+import database, { firebase } from "../../firebaseConnection/firebase";
+import Header from "../header/Header";
 import styles from "./Blogger.module.css";
-import {
-  Grid,
-  Typography,
-  Button,
-  Paper,
-  Card,
-  CardMedia,
-  CardActionArea,
-} from "@material-ui/core";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
-import { setLikeInc, updateBlogs } from "./blogSlice";
-export default function Blogger({ blogs }) {
+export default function Blogger() {
   const dispatch = useDispatch();
   const stableDispatch = useCallback(dispatch, []);
+  const history = useHistory();
+
+  const handleLike = (blogId) => {
+    const upvote = firebase.functions().httpsCallable("upvote");
+    upvote({ id: blogId }).catch((error) => {
+      console.log(error.message);
+    });
+  };
+  const blogs = useSelector(selectBlogs);
 
   useEffect(() => {
-    return () => stableDispatch(updateBlogs(blogs));
-  }, [blogs, stableDispatch]);
-
+    stableDispatch(setBlogsCollectionAsync());
+  });
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user) {
+        history.push("/");
+      }
+    });
+  });
   return (
-    <Grid display="flex">
-      {" "}
-      {blogs?.map((blog, key) => {
-        return (
-          <Paper
-            key={`blog_${key}`}
-            elevation={3}
-            style={{ opacity: "0.8" }}
-            className="m-3 p-3">
-            <Grid container className="m-3" data-aos="fade-up">
-              <Grid container display="flex" direction="row">
-                <Grid item xs={12} md={8}>
-                  <Typography variant="h4">{blog.title}</Typography>
-                  <Button
-                    color="primary"
-                    onClick={() => {
-                      dispatch(setLikeInc(blog.id));
+    <React.Fragment>
+      <Header title={"My blogger: Glimpse at my interests"} />
+      <div className={styles.bloggerContainer}>
+        {blogs?.map((blog, key) => {
+          return (
+            <div className={styles.blogContainer} key={key}>
+              <div>
+                <div className={styles.blogHeader}>
+                  <h2 className={styles.title}>{blog.title}</h2>
+                  <hr />
+                </div>
+                <div className={styles.imgLikeRow}>
+                  {" "}
+                  <div className={styles.blogImageContainer}>
+                    <img
+                      className={styles.blogImage}
+                      src={blog.src}
+                      alt={blog.alt}
+                    />
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      flexWrap: "wrap",
                     }}>
-                    <ThumbUpIcon />
-                    &nbsp;
-                    <Typography component="span" variant="subtitle1">
-                      {blog.likes}
-                    </Typography>
-                  </Button>
-                </Grid>
-                <Grid item xs={12} md={4}>
-                  <img
-                    className={styles.blogImage}
-                    src={blog.src}
-                    alt={blog.alt}
-                  />
-                </Grid>
-              </Grid>
+                    <span className={styles.likesCount}>{blog.likes}</span>
 
-              <Grid
-                container
-                display="flex"
-                direction="column"
-                justifyContent="space-evenly">
+                    <button
+                      className={`${styles.likesButton} btn btn-secondary`}
+                      onClick={() => handleLike(blog.id)}>
+                      <ThumbUpIcon />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className={styles.paragraphContainer}>
                 {blog.body.map((paragraph, parakey) => {
                   return (
-                    <Grid item key={`blogPara${parakey}`}>
-                      <Paper elevation={3} className="p-2 m-2">
-                        <Typography variant="body2" paragraph>
-                          {paragraph}
-                        </Typography>
-                      </Paper>
-                    </Grid>
+                    <p key={parakey} className={styles.paragraph}>
+                      {paragraph}
+                    </p>
                   );
                 })}
-              </Grid>
+              </div>
 
-              {blog.url && blog.url.length > 0 && <a href={blog.url}>Go!</a>}
-            </Grid>
-          </Paper>
-        );
-      })}
-    </Grid>
+              {blog.url && blog.url.length > 0 && (
+                <span>
+                  <a className={"btn btn-primary"} href={blog.url}>
+                    Go!
+                  </a>
+                </span>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </React.Fragment>
   );
 }

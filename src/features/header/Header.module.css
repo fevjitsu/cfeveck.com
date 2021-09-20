@@ -1,0 +1,28 @@
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f99192;
+  width: 100%;
+}
+.title {
+  margin-left: 10px;
+}
+.headerParagraph {
+  font-size: x-large;
+}
+@media only screen and (max-width: 600px) {
+  .title {
+    margin-left: 2px;
+  }
+  .headerParagraph {
+    font-size: normal;
+  }
+  .headerContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    background-color: #f99192;
+    width: 100%;
+  }
+}
