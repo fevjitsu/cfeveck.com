@@ -1,28 +1,38 @@
 .headerContainer {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   background-color: #f99192;
   width: 100%;
+  padding-bottom: 8px;
 }
 .title {
   margin-left: 10px;
 }
 .headerParagraph {
+  margin-left: 10px;
+  font-size: large;
+}
+.headerButtonsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.headerButtonsContainer > div {
+  flex-basis: 1;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.buttonText {
   font-size: x-large;
 }
+#headerImage {
+  border-radius: 25px;
+  height: 50px;
+  width: 50px;
+}
 @media only screen and (max-width: 600px) {
-  .title {
-    margin-left: 2px;
-  }
-  .headerParagraph {
-    font-size: normal;
-  }
-  .headerContainer {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    background-color: #f99192;
-    width: 100%;
-  }
 }

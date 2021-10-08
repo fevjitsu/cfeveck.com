@@ -7,10 +7,10 @@ import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { CssBaseline } from "@material-ui/core";
 import NotFound from "./pages/NotFound";
-import Home from "./pages/Home";
-import Blogger from "./features/blog/Blogger";
-import MapPage from "./pages/MapPage";
 import { CookiesProvider } from "react-cookie";
+import Blogger from "./features/blog/Blogger";
+import Home from "./pages/Home";
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
@@ -21,19 +21,12 @@ ReactDOM.render(
             <Route exact path="/">
               <App />
             </Route>
-
-            <Route path="/home">
+            <Route exact path="/home">
               <Home />
             </Route>
-
-            <Route path="/blogs">
+            <Route exact path="/blogs">
               <Blogger />
             </Route>
-
-            <Route path="/restaurants">
-              <MapPage />
-            </Route>
-
             <Route path="*">
               <NotFound />
             </Route>

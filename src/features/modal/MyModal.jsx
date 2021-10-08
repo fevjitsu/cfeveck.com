@@ -24,7 +24,7 @@ export default function MyModal({
       isOpen={openModal}
       onAfterOpen={afterOpenModal}
       onRequestClose={closeModal}
-      contentLabel="Example Modal">
+      contentLabel="Package Modal">
       <br />
       <div className={styles.modalButtonTopContainer}>
         &nbsp;

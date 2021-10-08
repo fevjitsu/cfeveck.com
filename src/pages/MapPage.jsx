@@ -5,14 +5,11 @@ import {
   setPlaceData,
   selectChild,
   handleChildClicked,
-  setShowTravelAdvisor,
-  selectShowTravelAdvisor,
 } from "../features/travelAdvisor/travelAdvisorSlice";
 import { getPlacesData } from "../api";
 export default function MapPage() {
   const dispatch = useDispatch();
   const childClicked = useSelector(selectChild);
-  const showTravelAdvisor = useSelector(selectShowTravelAdvisor);
   const [coordinates, setCoordinates] = useState({ lat: 0, lng: 0 });
   const [bounds, setBounds] = useState({});
   useEffect(() => {

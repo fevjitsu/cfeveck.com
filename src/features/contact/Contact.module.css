@@ -7,12 +7,7 @@
   color: red;
   font-weight: lighter;
 }
-input {
-  padding: 1rem;
-  margin: 0.2rem;
-  border-radius: 5px;
-  font-size: 1.2rem;
-}
+
 .contact__button {
   border: none;
   color: #fff;
@@ -61,6 +56,13 @@ form {
   height: 100%;
   width: 100%;
   opacity: 0.7;
+}
+.contactMeForm > input {
+  font-size: large;
+}
+.contactCloseButton {
+}
+.sendContactButton {
 }
 @media only screen and (max-width: 600px) {
 }

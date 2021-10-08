@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import database from "../../firebaseConnection/firebase";
-// import { uid } from "uid";
+import { collection, getDocs, onSnapshot } from "firebase/firestore";
+import { getFunctions, httpsCallable } from "firebase/functions";
+import firestore from "../../firebaseConnection/firebase";
 export const blogSlice = createSlice({
   name: "blogger",
   initialState: {
@@ -70,59 +72,11 @@ export const blogSlice = createSlice({
     setShowBlogs: (state, action) => {
       state.showBlogs = action.payload;
     },
-    setLikeInc: (state, action) => {
-      const blog = state.blogs.find((blog) => {
-        return blog.id === action.payload;
-      });
-
-      blog.likes = blog.likes + 1;
-    },
-    setLikeDec: (state) => {
-      state.likes = state.likes - 1;
-    },
   },
 });
-export const { setIsLoading, setBlogs, setShowBlogs, setLikeDec, setLikeInc } =
-  blogSlice.actions;
-
+export const { setIsLoading, setBlogs, setShowBlogs } = blogSlice.actions;
 export const selectisLoading = (state) => state.blogger.isLoading;
 export const selectBlogs = (state) => state.blogger.blogs;
 export const selectShowBlogs = (state) => state.blogger.showBlogs;
-export const selectLikes = (state) => state.blogger.likes;
 
-export const setBlogsCollectionAsync = () => (dispatch) => {
-  let blogs = [];
-
-  database
-    .collection(`blogs`)
-    .get()
-    .then((data) => {
-      data.forEach((blog) => {
-        blogs.push({ id: blog.id, ...blog.data() });
-      });
-    })
-    .then(() => {
-      dispatch(setBlogs(blogs));
-    })
-    .catch((error) => {
-      console(error.message);
-    });
-};
-export const addInitialBlogs = (blogs) => {
-  // database.ref("portfolioApp/blogs").update(blogs);
-};
-export const updateBlogs = (blogs) => (dispatch) => {
-  // database.ref("portfolioApp/blogs").update(blogs);
-};
-
-// useEffect(() => {
-//   let batch = database.batch();
-//   if (blogs && blogs.length > 0) {
-//     blogs.forEach((blog) => {
-//       const docRef = database.collection("blogs").doc();
-//       batch.set(docRef, blog);
-//     });
-//   }
-//   batch.commit();
-// }, [blogs]);
 export default blogSlice.reducer;

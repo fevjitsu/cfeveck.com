@@ -1,13 +1,8 @@
 * {
-  font-family: "Lato", sans-serif;
+  font-family: "Roboto", monospace, serif;
 }
 
-html {
-  background-color: #f97171;
-}
-
-.main {
-  height: 100%;
+button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -17,47 +12,21 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  background-color: #f97171;
-  max-width: 100%;
-}
-
-.btn {
-  text-decoration: none;
-  margin: 20px;
-  max-width: 130px;
-  max-height: 80px;
-  color: #fff;
-  border-radius: 5px;
-  padding: 10px 25px;
-  font-weight: 500;
-  background: transparent;
+  -ms-flex-preferred-size: 1;
+      flex-basis: 1;
   cursor: pointer;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-  -webkit-box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
+  border: transparent 0px solid;
+  border-radius: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 24px;
+  padding-right: 24px;
+  width: 100%;
+  text-align: center;
 }
 
-.btn-primary {
-  background-color: #8ad6cc;
-  color: #000;
-}
-
-.btn-secondary {
-  background-color: #385a7c;
-}
-
-.disabled {
-  text-decoration: line-through;
-  -webkit-text-decoration-color: black;
-          text-decoration-color: black;
-  background-color: #b2eee6;
+button:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=App.css.map */

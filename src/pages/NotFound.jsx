@@ -9,7 +9,9 @@ export default function NotFound() {
     <div>
       <Header title="Return to the known by pressing home" />
       <div className={styles.container}>
-        <h1>{`Looks like you got lost in the unknown, ${displayName}`}</h1>
+        <h1>{`Looks like you got lost in the unknown, ${
+          displayName ?? "Guest user"
+        }.`}</h1>
       </div>
     </div>
   );

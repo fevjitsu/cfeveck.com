@@ -1,0 +1,29 @@
+.cardContainer {
+  background-color: aqua;
+  margin-bottom: -80px;
+}
+.cardTitle {
+  font-size: larger;
+}
+.cardImageContainer {
+  border: none solid #385a7c;
+}
+.cardImage {
+  max-height: 180px;
+  width: 100%;
+}
+.cardButtonContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.cardButton {
+  border: #385a7c solid 2px;
+}
+.cardParagraphs {
+  display: flex;
+  flex-direction: column;
+}
+.cardParagraph {
+  background-color: #fff;
+}

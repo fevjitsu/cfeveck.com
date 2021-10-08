@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import isEmail from "validator/lib/isEmail";
 import isMobilePhone from "validator/lib/isMobilePhone";
-
-import Modal from "react-modal";
 import styles from "./Contact.module.css";
-import database from "../../firebaseConnection/firebase";
+import { collection, addDoc } from "firebase/firestore";
+import firestore from "../../firebaseConnection/firebase";
+
 export default function Contact({ handleClose }) {
   let [message, setMessage] = useState("");
   let [name, setName] = useState("");
@@ -12,7 +12,7 @@ export default function Contact({ handleClose }) {
   let [phone, setPhone] = useState("");
   let [approved, setApproved] = useState(false);
   let [messageSent, setMessageSent] = useState(false);
-  const onSubmit = (token) => {};
+
   const handleReset = () => {
     setEmail("");
     setPhone("");
@@ -23,60 +23,30 @@ export default function Contact({ handleClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const messageCollection = database.ref(`portfolioApp/messages`);
-    messageCollection
-      .push({
+    // Add a new document with a generated id.
+    const docRef = async () =>
+      await addDoc(collection(firestore, "contact"), {
         name,
         email,
         phone,
-      })
+        message,
+      });
+    docRef()
       .then(() => {
         setMessageSent(true);
+        handleClose();
       })
-      .then(() => {
-        handleReset();
-      })
-      .catch((e) => {
-        console.log("failed", e);
+      .catch((err) => {
+        setMessageSent(false);
+        console.log(err);
       });
-  };
-  const MessageSentModal = () => {
-    return (
-      <Modal
-        className={`${styles.modal__root}`}
-        isOpen={messageSent}
-        onRequestClose={() => {
-          setMessageSent(false);
-        }}
-      >
-        <div>
-          <h2>{`Hi ${name}, your message was sent.`}</h2>
-        </div>
-        <div>
-          <p>
-            I will do my best to response as soon as I can. In the mean time
-            stay safe and enjoy your day!
-          </p>
-        </div>
-        <div>
-          <button
-            className={`${styles.contact__button} ${styles.contact__button__close}`}
-            onClick={() => {
-              setMessageSent(false);
-            }}
-          >
-            close
-          </button>
-        </div>
-      </Modal>
-    );
   };
 
   useEffect(() => {
-    setMessageSent(false);
-  }, []);
-  useEffect(() => {
-    if (isEmail(email) && isMobilePhone(phone)) {
+    if (
+      isEmail(email)
+      // && isMobilePhone(phone)
+    ) {
       setApproved(true);
     } else {
       setApproved(false);
@@ -89,9 +59,9 @@ export default function Contact({ handleClose }) {
           <div>
             {handleClose ? (
               <button
-                className={`${styles.contact__button} ${styles.contact__button__close}`}
-                onClick={handleClose}
-              >
+                // className={`${styles.contact__button} ${styles.contact__button__close}`}
+                className={styles.contactCloseButton}
+                onClick={handleClose}>
                 Close
               </button>
             ) : null}
@@ -101,7 +71,7 @@ export default function Contact({ handleClose }) {
 
       <div>
         <div>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className={styles.contactMeForm}>
             <input
               id="formName"
               type="text"
@@ -157,27 +127,26 @@ export default function Contact({ handleClose }) {
             <input
               id="formTextArea"
               as="textarea"
-              rows="5"
+              rows={"3"}
               placeholder={"Message"}
               onChange={(e) => setMessage(e.target.value)}
               value={message}
             />
 
-            <MessageSentModal />
             <div>
               {approved ? (
                 <button
-                  className={`${styles.contact__button} ${styles.contact__button__close}`}
-                  onClick={handleSubmit}
-                >
+                  // className={`${styles.contact__button} ${styles.contact__button__close}`}
+                  className={styles.sendContactButton}
+                  onClick={handleSubmit}>
                   Send
                 </button>
               ) : (
                 <button
-                  className={`${styles.contact__button} ${styles.contact__button__send}`}
+                  // className={`${styles.contact__button} ${styles.contact__button__send}`}
+                  className={styles.sendContactButton}
                   onClick={handleSubmit}
-                  disabled
-                >
+                  disabled>
                   <strike>Send</strike>
                 </button>
               )}
@@ -185,11 +154,6 @@ export default function Contact({ handleClose }) {
           </form>
         </div>
       </div>
-      {messageSent && (
-        <div>
-          <h2>Your message was sent!</h2>
-        </div>
-      )}
     </div>
   );
 }

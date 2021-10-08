@@ -1,46 +1,42 @@
 import React, { useEffect, useState } from "react";
 import LogoutButton from "../login/LogoutButton";
 import { useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useCookies } from "react-cookie";
-import { firebase } from "../../firebaseConnection/firebase";
+import { getAuth } from "firebase/auth";
 import {
-  selectDisplayName,
-  selectEmail,
-  setEmail,
-  setDisplayName,
-} from "../login/loginSlice";
+  showContact,
+  hideContact,
+  selectViewContact,
+} from "../contact/contactSlice";
+import Contact from "../contact/Contact";
 import {
   GitHub as GitHubIcon,
   Twitter as TwitterIcon,
 } from "@material-ui/icons";
 import styles from "./Header.module.css";
+import { selectPhotoUrl } from "../login/loginSlice";
 export default function Header({ title, hasSearch = false }) {
+  const auth = getAuth();
   const history = useHistory();
   const dispatch = useDispatch();
+  const [cookies] = useCookies(["displayName", "email", "photoURL"]);
+  const viewContact = useSelector(selectViewContact);
   const [isDisabled, setIsDisabled] = useState(true);
-  const [cookies, setCookie, deleteCookie] = useCookies(["displayName"]);
+  const [message, setMessage] = useState(true);
+  const photoURL = useSelector(selectPhotoUrl) || cookies.photoURL;
   useEffect(() => {
     // set a clean up flag
     let isSubscribed = true;
-
-    firebase.auth().onAuthStateChanged((user) => {
+    auth.onAuthStateChanged((user) => {
       if (isSubscribed) {
         if (user && user.isAnonymous) {
-          setIsDisabled(true);
-          setCookie("displayName", "Guest", { path: "/" });
-          dispatch(setDisplayName(cookies.displayName));
+          setMessage("You will not have full access as a guest user.");
+          setIsDisabled(false);
         } else if (!user) {
           setIsDisabled(true);
         } else {
           setIsDisabled(false);
-          if (user.displayName) {
-            setCookie("displayName", user.displayName, { path: "/" });
-            dispatch(setDisplayName(cookies.displayName));
-          } else {
-            setCookie("displayName", user.email, { path: "/" });
-            dispatch(setDisplayName(cookies.displayName));
-          }
         }
       }
     });
@@ -52,38 +48,55 @@ export default function Header({ title, hasSearch = false }) {
     <div className={styles.headerContainer}>
       <div>
         <h1 className={styles.title}>{title}</h1>
-        {isDisabled && (
-          <p
-            className={styles.headerParagraph}
-            style={{ marginLeft: "5px", marginRight: "5px" }}>
-            As a guest you will have limited access.
-          </p>
-        )}
+        {message && <p className={styles.headerParagraph}>{message}</p>}
       </div>
 
-      <div>
-        {hasSearch && <div>other stuff</div>}
-        <a href="https://twitter.com/Cfeveck" className="btn">
-          <TwitterIcon color="action" fontSize="large" />
-        </a>
+      <div className={styles.headerButtonsContainer}>
+        <div>
+          <a href="https://twitter.com/Cfeveck" className="btn">
+            <TwitterIcon color="action" fontSize="large" />
+          </a>
+        </div>
         &nbsp;&nbsp;&nbsp;
-        <a href="https://github.com/fevjitsu" className="btn">
-          <GitHubIcon color="action" fontSize="large" />
-        </a>
-        <button
-          className={
-            isDisabled ? "btn btn-primary disabled" : "btn btn-primary"
-          }
-          onClick={() => history.push("/blogs")}
-          disabled={isDisabled}>
-          Blog
-        </button>
-        <button
-          className={"btn btn-primary"}
-          onClick={() => history.push("/home")}>
-          Home
-        </button>
+        <div>
+          <a href="https://github.com/fevjitsu" className="btn">
+            <GitHubIcon color="action" fontSize="large" />
+          </a>
+        </div>
+        <div>
+          <button onClick={() => history.push("/home")}>
+            <span>Home</span>
+          </button>
+        </div>
+        <div>
+          <button onClick={() => history.push("/blogs")} disabled={isDisabled}>
+            <span> Blog</span>
+          </button>
+        </div>
+        {!viewContact && (
+          <div>
+            <button onClick={() => dispatch(showContact())}>
+              <span>Contact me</span>
+            </button>
+          </div>
+        )}
+        {viewContact && (
+          <div className={styles.headerContactContainer}>
+            <Contact handleClose={() => dispatch(hideContact())} />
+          </div>
+        )}
         <LogoutButton />
+        {photoURL && (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: "10px",
+            }}>
+            <img id={styles.headerImage} src={photoURL} alt="google's user" />
+          </div>
+        )}
       </div>
     </div>
   );

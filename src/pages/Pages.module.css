@@ -1,103 +1,67 @@
-.container {
+.main {
   display: flex;
-  flex-direction: column;
-  align-self: start;
+  justify-content: flex-start;
+  align-items: center;
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/portfolio-231ae.appspot.com/o/images%2Fcfeveckbackground.png?alt=media&token=4af65f99-12fa-470f-89ef-4a2aa3b7308c");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #89ecda;
+  height: 100vh;
+  padding-left: 100px;
+}
+.homeParagraphContainer {
+  display: flex;
+  flex-basis: 1;
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: #f99192;
+}
+.homeTitle {
+  font-size: xx-large;
+}
+.homeParagraph {
+  border: 0px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  font-size: larger;
+  width: 40%;
+  background-color: #fff;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   margin-left: 10px;
   margin-right: 10px;
-  width: 80%;
 }
-.surface {
-  background-color: #f99192;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 8px;
+.homeTitle {
+  margin-left: 10px;
+  margin-right: 10px;
 }
-.paragraph {
-  font-size: larger;
-}
-.homeImage {
-  float: left;
-  position: relative;
-  top: -8%;
-  max-height: 480px;
-  margin-left: 2rem;
-  /* margin-top: 1rem; */
-  border: 8px solid #385a7c;
-  border-radius: 8px;
-}
-.cardContainer {
-  display: flex;
-  flex-direction: row wrap;
-  justify-content: space-evenly;
-}
-.card {
-  flex-basis: 1;
-  border: 8px solid #385a7c;
-  border-radius: 8px;
-  background-color: #f99192;
-  padding: 10px;
-  margin-top: 24px;
-  max-width: 30%;
-  /* cursor: pointer; */
-}
-.cardImage {
-  height: 180px;
-  width: 100%;
-  cursor: pointer;
-}
-.iconsList {
-  display: flex;
-  justify-content: space-evenly;
-}
-.icon {
-  cursor: pointer;
-}
-.titleContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-@media only screen and (max-width: 600px) {
-  .container {
+@media screen and (max-width: 600px) {
+  .main {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    margin-left: 5px;
-    margin-right: 5px;
-    width: 100%;
+    align-items: center;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/portfolio-231ae.appspot.com/o/images%2FcfeveckbackgroundSm.png?alt=media&token=8275a04a-ea5c-483b-b371-8cfb31bfdfb4");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #89ecda;
+    height: auto;
+    padding-left: 0px;
   }
-  .surface {
-    background-color: #f99192;
-    padding: 10px;
-    margin: 10px;
+  .homeParagraph {
+    border: 0px solid transparent;
     border-radius: 8px;
-  }
-  .paragraph {
-    font-size: normal;
-  }
-  .homeImage {
-    display: none;
-  }
-  .cardContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-  }
-  .card {
-    flex-basis: 1;
-    border: 8px solid #385a7c;
-    border-radius: 8px;
-    background-color: #f99192;
-    padding: 10px;
-    margin-top: 24px;
-    max-width: 100%;
-  }
-  .cardImage {
-    height: 180px;
-    width: 100%;
-  }
-  .iconsList {
-    display: flex;
-    justify-content: space-evenly;
+    outline: none;
+    font-size: larger;
+    width: 80%;
+    opacity: 0.8;
+    background-color: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
