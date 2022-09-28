@@ -6,7 +6,7 @@ import { collection, getDocs, onSnapshot, doc, docs } from "firebase/firestore";
 import { getFunctions, httpsCallable } from "firebase/functions";
 import { getAuth } from "firebase/auth";
 import firestore from "../../firebaseConnection/firebase";
-import Header from "../header/Header";
+import NavigationMenu from "../navigationMenu/NavigationMenu";
 import styles from "./Blogger.module.css";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import { CircularProgress, CssBaseline } from "@material-ui/core";
@@ -51,16 +51,9 @@ export default function Blogger() {
   useEffect(() => {
     const unsub = onSnapshot(collection(firestore, "blogs"), (snapshot) => {
       snapshot.docChanges().forEach((change) => {
-        // if (change.type === "added") {
-        //   console.log("New city: ", change.doc.data());
-        // }
         if (change.type === "modified") {
-          // console.log("Modified city: ", change.doc.data());
           dispatchGetBlogs();
         }
-        // if (change.type === "removed") {
-        //   console.log("Removed city: ", change.doc.data());
-        // }
       });
     });
     return () => {
@@ -70,7 +63,7 @@ export default function Blogger() {
 
   return (
     <React.Fragment>
-      <Header title={"My blogger: Glimpse at my interests"} />
+      <NavigationMenu title={"My blogger: Glimpse at my interests"} />
       <CssBaseline />
       <div className={styles.bloggerContainer}>
         {blogs ? (

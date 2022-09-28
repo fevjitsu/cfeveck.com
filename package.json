@@ -21,6 +21,8 @@
     "react": "^16.13.1",
     "react-cookie": "^4.1.1",
     "react-dom": "^16.13.1",
+    "react-fade": "^1.1.1",
+    "react-fade-in": "^2.0.1",
     "react-modal": "^3.11.2",
     "react-notifications": "^1.7.2",
     "react-recaptcha": "^2.3.10",

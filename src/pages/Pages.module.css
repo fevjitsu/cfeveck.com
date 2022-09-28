@@ -1,67 +1,22 @@
-.main {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  background-image: url("https://firebasestorage.googleapis.com/v0/b/portfolio-231ae.appspot.com/o/images%2Fcfeveckbackground.png?alt=media&token=4af65f99-12fa-470f-89ef-4a2aa3b7308c");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: #89ecda;
-  height: 100vh;
-  padding-left: 100px;
+.homeTitle{    
+    font-weight:lighter;
+    font-size:8em;
+    opacity:0.8;
 }
-.homeParagraphContainer {
-  display: flex;
-  flex-basis: 1;
-  padding-left: 8px;
-  padding-right: 8px;
-  background-color: #f99192;
+.homeParagraph{
+    font-weight:lighter;
+    font-size:4em;
+    opacity:0.8;
 }
-.homeTitle {
-  font-size: xx-large;
+.main{
+    display:flex;
+    flex-direction:column;
+    text-align:center;
 }
-.homeParagraph {
-  border: 0px solid transparent;
-  border-radius: 8px;
-  outline: none;
-  font-size: larger;
-  width: 40%;
-  background-color: #fff;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-.homeTitle {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-@media screen and (max-width: 600px) {
-  .main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url("https://firebasestorage.googleapis.com/v0/b/portfolio-231ae.appspot.com/o/images%2FcfeveckbackgroundSm.png?alt=media&token=8275a04a-ea5c-483b-b371-8cfb31bfdfb4");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: #89ecda;
-    height: auto;
-    padding-left: 0px;
-  }
-  .homeParagraph {
-    border: 0px solid transparent;
-    border-radius: 8px;
-    outline: none;
-    font-size: larger;
-    width: 80%;
-    opacity: 0.8;
-    background-color: #fff;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
+.subMain{
+    display:flex;
+    flex-direction:row;
+    text-align:center;
+    text-decoration:underline;
+    justify-content:space-around;
 }

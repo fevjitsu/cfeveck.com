@@ -14,7 +14,7 @@ import {
   GitHub as GitHubIcon,
   Twitter as TwitterIcon,
 } from "@material-ui/icons";
-import styles from "./Header.module.css";
+import styles from "./NavigationMenu.module.css";
 import { selectPhotoUrl } from "../login/loginSlice";
 export default function Header({ title, hasSearch = false }) {
   const auth = getAuth();
@@ -31,7 +31,7 @@ export default function Header({ title, hasSearch = false }) {
     auth.onAuthStateChanged((user) => {
       if (isSubscribed) {
         if (user && user.isAnonymous) {
-          setMessage("You will not have full access as a guest user.");
+          setMessage("Guest users have limited access.");
           setIsDisabled(false);
         } else if (!user) {
           setIsDisabled(true);
@@ -52,7 +52,7 @@ export default function Header({ title, hasSearch = false }) {
       </div>
 
       <div className={styles.headerButtonsContainer}>
-        <div>
+        {/* <div>
           <a href="https://twitter.com/Cfeveck" className="btn">
             <TwitterIcon color="action" fontSize="large" />
           </a>
@@ -62,7 +62,7 @@ export default function Header({ title, hasSearch = false }) {
           <a href="https://github.com/fevjitsu" className="btn">
             <GitHubIcon color="action" fontSize="large" />
           </a>
-        </div>
+        </div> */}
         <div>
           <button onClick={() => history.push("/home")}>
             <span>Home</span>

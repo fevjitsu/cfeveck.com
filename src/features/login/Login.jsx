@@ -143,7 +143,7 @@ export default function Login() {
               />
             </span>
             &nbsp;
-            <span className={styles.loginButtonText}>sign in</span>
+            <span className={styles.loginButtonText}>sign in with email</span>
           </button>
           <br />
           <button
@@ -156,7 +156,7 @@ export default function Login() {
               />
             </span>
             &nbsp;
-            <span className={styles.loginButtonText}>sign up</span>
+            <span className={styles.loginButtonText}>sign up with email</span>
           </button>
           <br />
           <button onClick={handleGuestLogin}>
