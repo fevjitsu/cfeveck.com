@@ -16,28 +16,42 @@ export default function Home() {
 
   const Main = () => {
     return (
-      <div className={styles.main}>
-        <div>
-          <h1 className={styles.homeTitle}>
-            Hi, I'm Chris a freelance web developer.
-          </h1>
-          <p className={styles.homeParagraph}>
-            As a web developer, I advocate implmenting on a serverless platform
-            and will design your application backed by the power of Google's
-            Cloud Platform. Securely deliver services to your clients with speed
-            and reliability—all on Google's infrastructure.
-          </p>
+      <section className={styles.main}>
+        <article className={styles.mainLayout}>
+          <div>
+            <h1 className={styles.homeTitle}>Basic info about me.</h1>
+            <p className={styles.homeParagraph}>
+              I am a freelancing web developer and designer. I design and
+              implement web apps on the Google Cloud Platform for your business
+              needs. Using Google's Cloud platform allows your business to scale
+              with tools and services provided by Google.
+            </p>
+          </div>
 
-          <p className={styles.homeParagraph}>
-            Whether your business is early in its journey or well on its way to
-            digital transformation, Google Cloud can help you solve your
-            toughest challenges. Grow from prototype to production without
-            having to think about capacity, reliability, or performance. Easily
-            capture, manage, process, and visualize data with Google Cloud data
-            analytics products to better understand your client needs.
-          </p>
-        </div>
-      </div>
+          <div>
+            <h3>Search engine optimization.</h3>
+            <p className={styles.homeParagraph}>
+              Improve how your site appears on Google. Search engine
+              optimization is the process of making your site better for search
+              engines. It's also the job title of a person who does this i.e me.
+            </p>
+            <h3>Web design.</h3>
+            <p className={styles.homeParagraph}>
+              If you need help with creating how a client interacts with your
+              product I can design mock ups that allow you to envision your
+              product with its business logic.
+            </p>
+            <h3>Web development.</h3>
+            <p className={styles.homeParagraph}>
+              I will implement and deploy your application or feature using your
+              tech stack or mine. This depends on what your needs are from
+              development. I use Google Cloud Platform to protect your app as
+              well as host it and your application will scale with your
+              business' growth.
+            </p>
+          </div>
+        </article>
+      </section>
     );
   };
   useEffect(() => {

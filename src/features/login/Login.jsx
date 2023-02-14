@@ -132,7 +132,7 @@ export default function Login() {
             &nbsp;
             <span className={styles.loginButtonText}>sign in using google</span>
           </button>
-          <br />
+          {/* <br />
           <button
             className={styles.loginButtonSecondary}
             onClick={handleShowLogin}>
@@ -144,8 +144,8 @@ export default function Login() {
             </span>
             &nbsp;
             <span className={styles.loginButtonText}>sign in</span>
-          </button>
-          <br />
+          </button> */}
+          {/* <br />
           <button
             className={styles.loginButtonSecondary}
             onClick={handleShowSignUp}>
@@ -157,7 +157,7 @@ export default function Login() {
             </span>
             &nbsp;
             <span className={styles.loginButtonText}>sign up</span>
-          </button>
+          </button> */}
           <br />
           <button onClick={handleGuestLogin}>
             <span className={styles.loginButtonIcon}>

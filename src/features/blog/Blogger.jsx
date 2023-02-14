@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { setBlogs, selectBlogs } from "./blogSlice";
@@ -11,11 +11,9 @@ import styles from "./Blogger.module.css";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import { CircularProgress, CssBaseline } from "@material-ui/core";
 export default function Blogger() {
-  const dispatch = useDispatch();
-  const blogs = useSelector(selectBlogs);
+  const [blogs, setBlogs] = useState();
   const history = useHistory();
-  const functions = getFunctions();
-  const upvote = httpsCallable(functions, "upvote");
+
   const auth = getAuth();
   const dispatchGetBlogs = useCallback(() => {
     getDocs(collection(firestore, "blogs")).then((snapshot) => {
@@ -23,21 +21,10 @@ export default function Blogger() {
       snapshot.docs.forEach((item) => {
         data.push({ id: item.id, ...item.data() });
       });
-      dispatch(setBlogs(data));
+      console.log(data);
+      setBlogs(data);
     });
-  }, [dispatch]);
-
-  const handleLike = (blogId) => {
-    upvote({ id: blogId }).catch((error) => {
-      if (error.message && error.message.length > 0) {
-        console.log("upvote error::", error.message);
-      }
-    });
-  };
-
-  useEffect(() => {
-    dispatchGetBlogs();
-  }, [dispatchGetBlogs]);
+  }, [blogs]);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -68,6 +55,9 @@ export default function Blogger() {
     };
   }, [dispatchGetBlogs]);
 
+  useEffect(() => {
+    console.log(blogs);
+  }, [blogs]);
   return (
     <React.Fragment>
       <Header title={"My blogger: Glimpse at my interests"} />
@@ -83,31 +73,12 @@ export default function Blogger() {
                     <hr />
                   </div>
                   <div className={styles.imgLikeRow}>
-                    {" "}
                     <div className={styles.blogImageContainer}>
                       <img
                         className={styles.blogImage}
                         src={blog.src}
                         alt={blog.alt}
                       />
-                    </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        flexWrap: "wrap",
-                      }}>
-                      <div>
-                        <button
-                          className={`${styles.likesButton} btn btn-secondary`}
-                          onClick={() => handleLike(blog.id)}>
-                          <span className={styles.likesCount}>
-                            {blog.likes}
-                          </span>
-                          &nbsp; | &nbsp;
-                          <ThumbUpIcon />
-                        </button>
-                      </div>
                     </div>
                   </div>
                 </div>
