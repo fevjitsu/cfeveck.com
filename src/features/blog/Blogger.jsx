@@ -90,8 +90,8 @@ export default function Blogger() {
                       <div className={styles.blogImageContainer}>
                         <img
                           className={styles.blogImage}
-                          src={blog.src}
-                          alt={blog.alt}
+                          src={blog.imageSrc}
+                          alt={blog.imageAlt}
                         />
                       </div>
                     </div>
