@@ -69,12 +69,8 @@ export default function NavMenu({ title, hasSearch = false }) {
           </button>
         </div>
         <div>
-          <button
-            // onClick={() => history.push("/blogs")}
-            disabled={isDisabled}>
-            <strike>
-              <span> Blog</span>
-            </strike>
+          <button onClick={() => history.push("/blogs")} disabled={isDisabled}>
+            <span> Blog</span>
           </button>
         </div>
         {!viewContact && (
