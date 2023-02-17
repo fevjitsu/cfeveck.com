@@ -5,6 +5,7 @@ import { CssBaseline } from "@material-ui/core";
 import styles from "./Pages.module.css";
 import { useHistory } from "react-router-dom";
 import { getAuth } from "firebase/auth";
+// import { Fade } from "@mui/material";
 export default function Home() {
   const auth = getAuth();
   const history = useHistory();
@@ -21,13 +22,17 @@ export default function Home() {
           <div>
             <div className={styles.mainBoxLayout}>
               <div>
+                {/* <Fade in={true} appear={false}> */}
                 <h1>About Me.</h1>
+                {/* </Fade> */}
+                {/* <Fade> */}
                 <p>
                   I am a freelancing web developer and designer. I design and
                   implement web apps on the Google Cloud Platform for your
                   business needs. Using Google's Cloud platform allows your
                   business to scale with tools and services provided by Google.
                 </p>
+                {/* </Fade> */}
               </div>
               <hr />
               <div className={styles.mainBoxLayoutUL}>
