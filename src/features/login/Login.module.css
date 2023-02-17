@@ -1,9 +1,10 @@
 #loginContainer {
-  height: 80vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #dff3e4;
 }
 
 /* .loginButtonIcon {
