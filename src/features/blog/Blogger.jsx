@@ -12,7 +12,10 @@ import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import { CircularProgress, CssBaseline } from "@material-ui/core";
 export default function Blogger() {
   const [blogs, setBlogs] = useState();
+  const [disableInc, setDisableInc] = useState(false);
+  const [disableDecr, setDisableDecr] = useState(false);
   let [track, setTrack] = useState(0);
+
   const history = useHistory();
 
   const auth = getAuth();
@@ -41,13 +44,17 @@ export default function Blogger() {
     getBlogCollection();
   }, []);
   useEffect(() => {
+    setDisableDecr(false);
+    setDisableInc(false);
     if (blogs) {
-      if (track < 0) {
+      if (track <= 0) {
         setTrack(0);
+        setDisableDecr(true);
       }
 
       if (track >= blogs.length - 1) {
         setTrack(blogs.length - 1);
+        setDisableInc(true);
       }
     }
   }, [track, blogs]);
@@ -59,10 +66,14 @@ export default function Blogger() {
       <div className={styles.bloggerContainer}>
         <div className={styles.bloggerContainerButtons}>
           <div>
-            <button onClick={decrementTrack}>Prev Post</button>
+            <button onClick={decrementTrack} disabled={disableDecr}>
+              Prev Post
+            </button>
           </div>
           <div>
-            <button onClick={incramentTrack}>Next Post</button>
+            <button onClick={incramentTrack} disabled={disableInc}>
+              Next Post
+            </button>
           </div>
         </div>
         {blogs ? (
