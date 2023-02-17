@@ -3,9 +3,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #f99192;
+  background-color: #7180b9;
   width: 100%;
-  padding-bottom: 8px;
+  height: 10vh;
 }
 .title {
   margin-left: 10px;
@@ -30,9 +30,8 @@
   font-size: x-large;
 }
 #headerImage {
-  border-radius: 25px;
-  height: 50px;
-  width: 50px;
+  margin-top: 50px;
+  clip-path: circle(50%);  
 }
 @media only screen and (max-width: 600px) {
 }

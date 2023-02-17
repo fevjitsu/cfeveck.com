@@ -6,7 +6,7 @@ import { collection, getDocs, onSnapshot, doc, docs } from "firebase/firestore";
 import { getFunctions, httpsCallable } from "firebase/functions";
 import { getAuth } from "firebase/auth";
 import firestore from "../../firebaseConnection/firebase";
-import Header from "../header/Header";
+import NavMenu from "../header/NavMenu";
 import styles from "./Blogger.module.css";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import { CircularProgress, CssBaseline } from "@material-ui/core";
@@ -60,7 +60,7 @@ export default function Blogger() {
   }, [blogs]);
   return (
     <React.Fragment>
-      <Header title={"My blogger: Glimpse at my interests"} />
+      <NavMenu title={"My blogger: Glimpse at my interests"} />
       <CssBaseline />
       <div className={styles.bloggerContainer}>
         {blogs ? (

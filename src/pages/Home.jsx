@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Header from "../features/header/Header";
+import NavMenu from "../features/header/NavMenu";
 import { useCookies } from "react-cookie";
 import { CssBaseline } from "@material-ui/core";
 import styles from "./Pages.module.css";
@@ -19,36 +19,63 @@ export default function Home() {
       <section className={styles.main}>
         <article className={styles.mainLayout}>
           <div>
-            <h1 className={styles.homeTitle}>Basic info about me.</h1>
-            <p className={styles.homeParagraph}>
-              I am a freelancing web developer and designer. I design and
-              implement web apps on the Google Cloud Platform for your business
-              needs. Using Google's Cloud platform allows your business to scale
-              with tools and services provided by Google.
-            </p>
-          </div>
-
-          <div>
-            <h3>Search engine optimization.</h3>
-            <p className={styles.homeParagraph}>
-              Improve how your site appears on Google. Search engine
-              optimization is the process of making your site better for search
-              engines. It's also the job title of a person who does this i.e me.
-            </p>
-            <h3>Web design.</h3>
-            <p className={styles.homeParagraph}>
-              If you need help with creating how a client interacts with your
-              product I can design mock ups that allow you to envision your
-              product with its business logic.
-            </p>
-            <h3>Web development.</h3>
-            <p className={styles.homeParagraph}>
-              I will implement and deploy your application or feature using your
-              tech stack or mine. This depends on what your needs are from
-              development. I use Google Cloud Platform to protect your app as
-              well as host it and your application will scale with your
-              business' growth.
-            </p>
+            <div className={styles.mainBoxLayout}>
+              <div>
+                <h1>About Me.</h1>
+                <p>
+                  I am a freelancing web developer and designer. I design and
+                  implement web apps on the Google Cloud Platform for your
+                  business needs. Using Google's Cloud platform allows your
+                  business to scale with tools and services provided by Google.
+                </p>
+              </div>
+              <hr />
+              <div className={styles.mainBoxLayoutUL}>
+                <div>
+                  <h3>Search engine optimization.</h3>
+                  <ul>
+                    <li>Improve how your site appears on Google.</li>
+                    <li>
+                      Search engine optimization is the process of making your
+                      site better for search engines.
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3>Web Design.</h3>
+                  <ul>
+                    <li>
+                      Customize how your client interacts with your online
+                      product by creating a workflow that works for your
+                      business.
+                    </li>
+                    <li>
+                      Design mock ups that allow you to envision your product.
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3>Web Development.</h3>
+                  <ul>
+                    <li>
+                      I will implement and deploy your application or feature
+                      using Microsoft's Azure or Google's Cloud Platform.
+                    </li>
+                    <li>
+                      Scale your operations based on your business criteria. If
+                      you need more computing power for the holidays then scale
+                      up. When you need to you can scale down. Think of how cost
+                      effective this will be.
+                    </li>
+                    <li>
+                      Protect your application with cloud based security that
+                      way you can focus on creating new features or promotions
+                      for your application.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </article>
       </section>
@@ -64,7 +91,7 @@ export default function Home() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Header title={`Welcome, ${getFirstName(cookies.displayName)}.`} />
+      <NavMenu title={`Welcome, ${getFirstName(cookies.displayName)}.`} />
       <Main />
     </React.Fragment>
   );

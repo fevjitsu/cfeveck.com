@@ -14,9 +14,9 @@ import {
   GitHub as GitHubIcon,
   Twitter as TwitterIcon,
 } from "@material-ui/icons";
-import styles from "./Header.module.css";
+import styles from "./NavMenu.module.css";
 import { selectPhotoUrl } from "../login/loginSlice";
-export default function Header({ title, hasSearch = false }) {
+export default function NavMenu({ title, hasSearch = false }) {
   const auth = getAuth();
   const history = useHistory();
   const dispatch = useDispatch();
@@ -69,8 +69,12 @@ export default function Header({ title, hasSearch = false }) {
           </button>
         </div>
         <div>
-          <button onClick={() => history.push("/blogs")} disabled={isDisabled}>
-            <span> Blog</span>
+          <button
+            // onClick={() => history.push("/blogs")}
+            disabled={isDisabled}>
+            <strike>
+              <span> Blog</span>
+            </strike>
           </button>
         </div>
         {!viewContact && (

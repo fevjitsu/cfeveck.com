@@ -6,7 +6,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #89ecda;
-  height: 100vh;
+  height: 90vh;
   padding-left: 100px;
 }
 .mainLayout{
@@ -14,34 +14,46 @@
   flex-direction:row;
   justify-content: center;
   align-content: center;
+  
 }
-.homeParagraphContainer {
+.mainBoxLayout{  
   display: flex;
-  flex-basis: 1;
-  padding-left: 8px;
-  padding-right: 8px;
-  background-color: #f99192;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 50vw;
 }
-.homeTitle {
-  font-size: xx-large;
+.mainBoxLayout > div > p{
+  padding:16px;
+  background-color: #dff3e4;  
+  font-size: large;
 }
-.homeParagraph {
-  border: 0px solid transparent;
-  border-radius: 8px;
-  outline: none;
-  font-size: larger;
-  width: 40%;
-  background-color: #fff;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  margin-left: 10px;
-  margin-right: 10px;
+.mainBoxLayout >div>h1{
+  font-size: 4em;
+  font-weight: lighter;  
 }
-.homeTitle {
-  margin-left: 10px;
-  margin-right: 10px;
+.mainBoxLayout >div>div>h3{
+  font-size: 2em;
+  font-weight: lighter;  
+}
+
+.mainBoxLayoutUL{
+  display: flex;
+  flex-direction: row;  
+  flex:1;
+  
+}
+.mainBoxLayoutUL > div{
+  margin-left: 16px;
+  margin-right: 16px;    
+}
+.mainBoxLayoutUL > div > ul{
+  background-color: #dff3e4;  
+  padding:2px;
+  font-size: large;
+}
+hr{
+  width:100%;
+  border: solid 2px #000;
 }
 @media screen and (max-width: 600px) {
   .main {
@@ -55,19 +67,5 @@
     height: auto;
     padding-left: 0px;
   }
-  .homeParagraph {
-    border: 0px solid transparent;
-    border-radius: 8px;
-    outline: none;
-    font-size: larger;
-    width: 80%;
-    opacity: 0.8;
-    background-color: #fff;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
+  
 }
