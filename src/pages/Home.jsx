@@ -79,6 +79,21 @@ export default function Home() {
                     </li>
                   </ul>
                 </div>
+                <div>
+                  <h3>Projects.</h3>
+                  <ul>
+                    <li>
+                      <a href="https://tuj.mer.mybluehost.me/acps">
+                        A Cute Printables Store.
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://hoops-finder.azurewebsites.net/Function1">
+                        Find a hoop api.
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
