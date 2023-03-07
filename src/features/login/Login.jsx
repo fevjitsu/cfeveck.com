@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+
 import {
   getAuth,
   signInWithPopup,
@@ -8,10 +8,10 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { useHistory } from "react-router-dom";
+
 import { useCookies } from "react-cookie";
 import styles from "./Login.module.css";
-import { setDisplayName, setEmail, setPhotoUrl } from "./loginSlice";
+
 export default function Login() {
   const [cookies, setCookie] = useCookies(["displayName", "email", "photoURL"]);
   const auth = getAuth();

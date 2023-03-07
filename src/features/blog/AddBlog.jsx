@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { firebase } from "../../firebaseConnection/firebase";
-import { selectDisplayName } from "../login/loginSlice";
-import Header from "../header/Header";
+import Header from "../header/NavMenu";
 import styles from "./Blogger.module.css";
 import isURL from "validator/lib/isURL";
 export default function AddBlog() {

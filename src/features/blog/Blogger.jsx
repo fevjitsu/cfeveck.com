@@ -1,7 +1,4 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { setBlogs, selectBlogs } from "./blogSlice";
 import { collection, getDocs, onSnapshot, doc, docs } from "firebase/firestore";
 import { getFunctions, httpsCallable } from "firebase/functions";
 import { getAuth } from "firebase/auth";
